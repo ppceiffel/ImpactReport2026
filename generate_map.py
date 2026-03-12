@@ -97,6 +97,12 @@ PARTNER_EXCLUDE = {
     "TOTAL","NSP","EU27_2020","EUR_OTH","EX_SU_OTH","AME_OTH",
     "AFR_OTH","ASI_OTH","ASI_NME_OTH","EA21","EA20","EA19",
 }
+# Codes Eurostat des pays UE27 — exclus des partenaires (on ne veut que hors UE)
+PARTNER_EU27_CODES = {
+    "AT","BE","BG","CY","CZ","DE","DK","EE","EL","ES","FI","FR",
+    "HR","HU","IE","IT","LT","LU","LV","MT","NL","PL","PT","RO",
+    "SE","SI","SK",
+}
 
 # Centroïdes approximatifs des capitales EU (iso3 -> [lat, lon])
 EU_CENTROIDS = {
@@ -153,10 +159,37 @@ def decode_geo_vals(data, conv=1.0):
 
 
 def fetch_import_total(dataset, siec, unit):
+    """Importations totales hors UE27 (partner=EXTRA_EU27_2020)."""
     d = fetch(dataset, {"format":"JSON","lang":"EN","freq":"A",
-        "unit":unit,"siec":siec,"partner":"TOTAL",
+        "unit":unit,"siec":siec,"partner":"EXTRA_EU27_2020",
         "sinceTimePeriod":YEAR,"untilTimePeriod":YEAR})
-    return decode_geo_vals(d, CONV_KTOE[siec])
+    result = decode_geo_vals(d, CONV_KTOE[siec])
+    if not result:
+        # Fallback : sommer manuellement les partenaires non-UE
+        print(f"    EXTRA_EU27_2020 vide pour {siec}, fallback somme hors-UE…")
+        d2 = fetch(dataset, {"format":"JSON","lang":"EN","freq":"A",
+            "unit":unit,"siec":siec,
+            "sinceTimePeriod":YEAR,"untilTimePeriod":YEAR})
+        if not d2 or not d2.get("value"): return {}
+        dims, sizes = d2["id"], d2["size"]
+        geo_inv     = _inv(d2, "geo")
+        partner_inv = _inv(d2, "partner")
+        time_inv    = _inv(d2, "time")
+        strides     = _strides(sizes)
+        conv        = CONV_KTOE[siec]
+        totals = {}
+        for idx_str, val in d2["value"].items():
+            if val is None or val <= 0: continue
+            idx = int(idx_str); indices, rem = [], idx
+            for s in strides: indices.append(rem//s); rem %= s
+            gc = geo_inv.get(indices[dims.index("geo")], "?")
+            pc = partner_inv.get(indices[dims.index("partner")], "?")
+            tc = time_inv.get(indices[dims.index("time")], "?")
+            if gc not in EU_COUNTRIES or tc != YEAR: continue
+            if pc in PARTNER_EXCLUDE or pc in PARTNER_EU27_CODES: continue
+            totals[gc] = round(totals.get(gc, 0) + val * conv, 1)
+        return totals
+    return result
 
 
 def fetch_consumption(siec):
@@ -189,7 +222,7 @@ def fetch_import_partners(dataset, siec, unit):
         pc = partner_inv.get(indices[dims.index("partner")], "?")
         tc = time_inv.get(indices[dims.index("time")], "?")
         if gc not in EU_COUNTRIES or tc != YEAR: continue
-        if pc in PARTNER_EXCLUDE: continue
+        if pc in PARTNER_EXCLUDE or pc in PARTNER_EU27_CODES: continue
         pname = partner_lbl.get(pc, pc)
         raw.setdefault(gc, {})[pname] = round(val * conv, 1)
     result = {}
@@ -403,6 +436,18 @@ function clearArrows(){
   arrowLayers = [];
 }
 
+function labelPosition(pts){
+  // Retourne le premier point de la courbe qui entre dans les limites
+  // visibles de l'Europe, pour que le label reste à l'écran
+  // même si le fournisseur est très loin (Russie, USA, Qatar…)
+  for(let i=0;i<pts.length;i++){
+    if(pts[i][0]>=33 && pts[i][0]<=72 && pts[i][1]>=-28 && pts[i][1]<=50){
+      return pts[i];
+    }
+  }
+  return pts[0]; // fallback si hors zone
+}
+
 function bezierPoints(p1, p2, n){
   const mlat=(p1[0]+p2[0])/2, mlng=(p1[1]+p2[1])/2;
   const dlat=p2[0]-p1[0], dlng=p2[1]-p1[1];
@@ -481,19 +526,21 @@ function drawArrows(iso3){
     }).addTo(map);
     arrowLayers.push(arrow);
 
-    // Drapeau + nom à la source
+    // Drapeau + nom : positionné au premier point de la courbe
+    // dans les limites visibles de l'Europe (reste à l'écran)
     const fl = flag(p.iso2);
+    const lpos = labelPosition(pts);
     const flagHtml = `<div class="arrow-flag-label" style="
       display:flex;flex-direction:column;align-items:center;gap:2px;
-      min-width:60px;transform:translateX(-50%)
+      min-width:60px;transform:translate(-50%,-100%)
     ">
-      <span style="font-size:22px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.4))">${fl}</span>
-      <span style="font-size:10px;background:#fff;border-radius:3px;
-        padding:1px 5px;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.25);
-        font-weight:600;color:${col}">${p.pays}</span>
+      <span style="font-size:20px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))">${fl}</span>
+      <span style="font-size:10px;background:rgba(255,255,255,0.95);border-radius:4px;
+        padding:2px 6px;white-space:nowrap;box-shadow:0 1px 5px rgba(0,0,0,.3);
+        font-weight:700;color:${col};border:1px solid ${col}">${p.pays}</span>
     </div>`;
-    const marker = L.marker(src, {
-      icon: L.divIcon({html:flagHtml, className:'', iconAnchor:[30,30]}),
+    const marker = L.marker(lpos, {
+      icon: L.divIcon({html:flagHtml, className:'', iconSize:[120,50], iconAnchor:[60,50]}),
       interactive:false, zIndexOffset:500+idx
     }).addTo(map);
     arrowLayers.push(marker);
@@ -508,7 +555,7 @@ function openPanel(iso3){
 
   let html = `<div class="dep-big">
     <div class="dep-pct">${d.dep_pct.toFixed(1)} %</div>
-    <div class="dep-label">Importations fossiles / consommation d'énergie totale</div>
+    <div class="dep-label">Importations fossiles hors UE / consommation totale</div>
   </div>`;
 
   ORDER.forEach(t => {
