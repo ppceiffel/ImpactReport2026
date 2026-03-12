@@ -1,500 +1,375 @@
 """
-Génération d'une carte HTML interactive des importations d'énergie fossile
-en Europe (données Eurostat, 2019-2023).
+Génération de la carte HTML interactive des importations d'énergie fossile
+en Europe — données Eurostat 2023.
 
-Toutes les valeurs sont converties en ktoe (kilotonnes d'équivalent pétrole)
-pour permettre la comparaison inter-types.
-
-Facteurs de conversion (source : Eurostat / AIE) :
-  - Charbon (THS_T)  → ktoe : × 0.474
-  - Pétrole (THS_T)  → ktoe : × 1.020
-  - Gaz (TJ_GCV)     → ktoe : × 0.02388
+Toutes les valeurs sont converties en ktoe (kilotonnes équivalent pétrole) :
+  Charbon   THS_T  × 0.474
+  Pétrole   THS_T  × 1.020
+  Gaz       TJ_GCV × 0.02388
 """
 
 import json
-import os
-import pandas as pd
+import requests
+import urllib3
 import folium
-from folium import plugins
 import branca.colormap as cm
-import requests, urllib3
+
 urllib3.disable_warnings()
 
-# ── Facteurs de conversion vers ktoe ─────────────────────────────────────────
-CONV = {
-    "Combustibles fossiles solides (charbon)": 0.474,   # THS_T → ktoe
-    "Pétrole brut":                             1.020,   # THS_T → ktoe
-    "Pétrole et produits pétroliers":           1.020,   # THS_T → ktoe
-    "Gaz naturel":                              0.02388, # TJ_GCV → ktoe
+BASE_URL = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data"
+YEAR     = "2023"
+
+CONV_KTOE = {
+    "C0000X0350-0370": 0.474,
+    "O4100_TOT":       1.020,
+    "O4000XBIO":       1.020,
+    "G3000":           0.02388,
 }
 
-ENERGY_COLORS = {
-    "Charbon":          "#4a4a4a",
-    "Gaz naturel":      "#e86c1f",
-    "Pétrole brut":     "#8b0000",
-    "Prod. pétroliers": "#d62728",
+TYPE_LABEL = {
+    "C0000X0350-0370": "Charbon",
+    "O4100_TOT":       "Pétrole brut",
+    "O4000XBIO":       "Produits pétroliers",
+    "G3000":           "Gaz naturel",
 }
 
-# ── Correspondance codes Eurostat (ISO-2 modifié) → ISO-3 ────────────────────
+TYPE_COLOR = {
+    "Charbon":             "#4a4a4a",
+    "Gaz naturel":         "#e86c1f",
+    "Pétrole brut":        "#8b0000",
+    "Produits pétroliers": "#c0392b",
+}
+
+EU_COUNTRIES = {
+    "AT":"Autriche","BE":"Belgique","BG":"Bulgarie","CY":"Chypre",
+    "CZ":"Tchéquie","DE":"Allemagne","DK":"Danemark","EE":"Estonie",
+    "EL":"Grèce","ES":"Espagne","FI":"Finlande","FR":"France",
+    "HR":"Croatie","HU":"Hongrie","IE":"Irlande","IS":"Islande",
+    "IT":"Italie","LT":"Lituanie","LU":"Luxembourg","LV":"Lettonie",
+    "MT":"Malte","NL":"Pays-Bas","NO":"Norvège","PL":"Pologne",
+    "PT":"Portugal","RO":"Roumanie","SE":"Suède","SI":"Slovénie",
+    "SK":"Slovaquie","UK":"Royaume-Uni",
+}
+
 ISO2_TO_ISO3 = {
-    "AT": "AUT", "BE": "BEL", "BG": "BGR", "CY": "CYP",
-    "CZ": "CZE", "DE": "DEU", "DK": "DNK", "EE": "EST",
-    "EL": "GRC", "ES": "ESP", "FI": "FIN", "FR": "FRA",
-    "HR": "HRV", "HU": "HUN", "IE": "IRL", "IS": "ISL",
-    "IT": "ITA", "LT": "LTU", "LU": "LUX", "LV": "LVA",
-    "MT": "MLT", "NL": "NLD", "NO": "NOR", "PL": "POL",
-    "PT": "PRT", "RO": "ROU", "SE": "SWE", "SI": "SVN",
-    "SK": "SVK", "UK": "GBR",
+    "AT":"AUT","BE":"BEL","BG":"BGR","CY":"CYP","CZ":"CZE","DE":"DEU",
+    "DK":"DNK","EE":"EST","EL":"GRC","ES":"ESP","FI":"FIN","FR":"FRA",
+    "HR":"HRV","HU":"HUN","IE":"IRL","IS":"ISL","IT":"ITA","LT":"LTU",
+    "LU":"LUX","LV":"LVA","MT":"MLT","NL":"NLD","NO":"NOR","PL":"POL",
+    "PT":"PRT","RO":"ROU","SE":"SWE","SI":"SVN","SK":"SVK","UK":"GBR",
 }
 
-TYPE_SHORT = {
-    "Combustibles fossiles solides (charbon)": "Charbon",
-    "Gaz naturel":                             "Gaz naturel",
-    "Pétrole brut":                            "Pétrole brut",
-    "Pétrole et produits pétroliers":          "Prod. pétroliers",
+PARTNER_EXCLUDE = {
+    "TOTAL","NSP","EU27_2020","EUR_OTH","EX_SU_OTH","AME_OTH",
+    "AFR_OTH","ASI_OTH","ASI_NME_OTH","EA21","EA20",
 }
 
 
-def load_data(csv_path: str) -> pd.DataFrame:
-    df = pd.read_csv(csv_path)
-    # Exclure l'agrégat EU27
-    df = df[df["geo_code"] != "EU27_2020"].copy()
-    # Ajouter ISO-3 et conversion ktoe
-    df["iso3"] = df["geo_code"].map(ISO2_TO_ISO3)
-    df["type_court"] = df["type_energie"].map(TYPE_SHORT)
-    df["ktoe"] = df.apply(
-        lambda r: r["valeur"] * CONV.get(r["type_energie"], 1), axis=1
-    )
-    return df
+def fetch(dataset, params):
+    try:
+        r = requests.get(f"{BASE_URL}/{dataset}", params=params, timeout=60, verify=False)
+        r.raise_for_status()
+        return r.json()
+    except Exception as e:
+        print(f"  ✗ {dataset}: {e}")
+        return None
 
 
-def build_summary(df: pd.DataFrame) -> dict:
-    """
-    Construit un dict {iso3: {annee: {type_court: ktoe}}}
-    pour toutes les années disponibles.
-    """
-    summary = {}
-    for _, row in df.iterrows():
-        iso3 = row["iso3"]
-        if pd.isna(iso3):
-            continue
-        year = str(row["annee"])
-        typ  = row["type_court"]
-        if iso3 not in summary:
-            summary[iso3] = {}
-        if year not in summary[iso3]:
-            summary[iso3][year] = {}
-        summary[iso3][year][typ] = round(row["ktoe"], 1)
-    return summary
+def _strides(sizes):
+    st = [1] * len(sizes)
+    for i in range(len(sizes) - 2, -1, -1):
+        st[i] = st[i + 1] * sizes[i + 1]
+    return st
 
 
-def total_by_country_year(df: pd.DataFrame) -> dict:
-    """Retourne {(iso3, annee): total_ktoe}"""
-    grp = (
-        df.dropna(subset=["iso3"])
-          .groupby(["iso3", "annee"])["ktoe"]
-          .sum()
-          .reset_index()
-    )
-    return {(r["iso3"], str(r["annee"])): round(r["ktoe"], 1)
-            for _, r in grp.iterrows()}
+def _inv(data, dim):
+    return {v: k for k, v in data["dimension"][dim]["category"]["index"].items()}
 
 
-def get_geojson() -> dict:
-    """Télécharge le GeoJSON monde (Natural Earth via un CDN fiable)."""
+def fetch_total_by_geo(dataset, siec, unit):
+    """Retourne {geo_code: ktoe} pour le partenaire TOTAL."""
+    d = fetch(dataset, {
+        "format":"JSON","lang":"EN","freq":"A",
+        "unit":unit,"siec":siec,"partner":"TOTAL",
+        "sinceTimePeriod":YEAR,"untilTimePeriod":YEAR,
+    })
+    if not d or not d.get("value"):
+        return {}
+    dims, sizes = d["id"], d["size"]
+    geo_inv  = _inv(d, "geo")
+    time_inv = _inv(d, "time")
+    strides  = _strides(sizes)
+    conv     = CONV_KTOE[siec]
+    out = {}
+    for idx_str, val in d["value"].items():
+        if val is None: continue
+        idx = int(idx_str)
+        indices, rem = [], idx
+        for s in strides:
+            indices.append(rem // s); rem %= s
+        gc = geo_inv.get(indices[dims.index("geo")], "?")
+        tc = time_inv.get(indices[dims.index("time")], "?")
+        if gc in EU_COUNTRIES and tc == YEAR:
+            out[gc] = round(val * conv, 1)
+    return out
+
+
+def fetch_partners(dataset, siec, unit):
+    """Retourne {geo_code: {partner_label: ktoe}} top-5 par pays."""
+    d = fetch(dataset, {
+        "format":"JSON","lang":"EN","freq":"A",
+        "unit":unit,"siec":siec,
+        "sinceTimePeriod":YEAR,"untilTimePeriod":YEAR,
+    })
+    if not d or not d.get("value"):
+        return {}
+    dims, sizes = d["id"], d["size"]
+    geo_inv     = _inv(d, "geo")
+    partner_inv = _inv(d, "partner")
+    time_inv    = _inv(d, "time")
+    partner_lbl = d["dimension"]["partner"]["category"]["label"]
+    strides     = _strides(sizes)
+    conv        = CONV_KTOE[siec]
+    raw: dict[str, dict[str, float]] = {}
+    for idx_str, val in d["value"].items():
+        if val is None or val == 0: continue
+        idx = int(idx_str)
+        indices, rem = [], idx
+        for s in strides:
+            indices.append(rem // s); rem %= s
+        gc  = geo_inv.get(indices[dims.index("geo")], "?")
+        pc  = partner_inv.get(indices[dims.index("partner")], "?")
+        tc  = time_inv.get(indices[dims.index("time")], "?")
+        if gc not in EU_COUNTRIES or tc != YEAR: continue
+        if pc in PARTNER_EXCLUDE: continue
+        pname = partner_lbl.get(pc, pc)
+        raw.setdefault(gc, {})[pname] = round(val * conv, 1)
+    # Garder top-5 par pays
+    return {
+        gc: [{"pays": p, "ktoe": v}
+             for p, v in sorted(pmap.items(), key=lambda x: -x[1])[:5]]
+        for gc, pmap in raw.items()
+    }
+
+
+def build_data():
+    DATASETS = [
+        ("nrg_ti_sff", "C0000X0350-0370", "THS_T"),
+        ("nrg_ti_gas", "G3000",           "TJ_GCV"),
+        ("nrg_ti_oil", "O4100_TOT",       "THS_T"),
+        ("nrg_ti_oil", "O4000XBIO",       "THS_T"),
+    ]
+    totals_by_type:   dict[str, dict] = {}
+    partners_by_type: dict[str, dict] = {}
+    for dataset, siec, unit in DATASETS:
+        lbl = TYPE_LABEL[siec]
+        print(f"  [{lbl}] total…")
+        totals_by_type[siec]   = fetch_total_by_geo(dataset, siec, unit)
+        print(f"  [{lbl}] partenaires…")
+        partners_by_type[siec] = fetch_partners(dataset, siec, unit)
+
+    # {geo: {type_label: ktoe}}
+    country_totals = {}
+    for siec, geo_map in totals_by_type.items():
+        for geo, val in geo_map.items():
+            country_totals.setdefault(geo, {})[TYPE_LABEL[siec]] = val
+
+    # {geo: {type_label: [{pays, ktoe}]}}
+    country_partners = {}
+    for siec, geo_map in partners_by_type.items():
+        lbl = TYPE_LABEL[siec]
+        for geo, plist in geo_map.items():
+            country_partners.setdefault(geo, {})[lbl] = plist
+
+    return country_totals, country_partners
+
+
+def get_geojson(iso3_set):
     url = (
         "https://raw.githubusercontent.com/python-visualization/folium"
         "/main/examples/data/world-countries.json"
     )
-    resp = requests.get(url, verify=False, timeout=30)
-    resp.raise_for_status()
-    return resp.json()
+    geo = requests.get(url, verify=False, timeout=30).json()
+    return {
+        "type": "FeatureCollection",
+        "features": [f for f in geo["features"] if f["id"] in iso3_set],
+    }
 
 
-def filter_europe(geo: dict, iso3_set: set) -> dict:
-    """Conserve uniquement les pays présents dans nos données."""
-    features = [
-        f for f in geo["features"]
-        if f["id"] in iso3_set
-    ]
-    return {"type": "FeatureCollection", "features": features}
+def make_map(country_totals, country_partners, out_path):
+    totals_iso3   = {ISO2_TO_ISO3[g]: v for g, v in country_totals.items()   if g in ISO2_TO_ISO3}
+    partners_iso3 = {ISO2_TO_ISO3[g]: v for g, v in country_partners.items() if g in ISO2_TO_ISO3}
+    pays_iso3     = {ISO2_TO_ISO3[g]: n for g, n in EU_COUNTRIES.items()     if g in ISO2_TO_ISO3}
 
-
-def make_map(df: pd.DataFrame, out_path: str):
-    summary   = build_summary(df)
-    totals    = total_by_country_year(df)
-    years     = sorted(df["annee"].astype(str).unique())
-    iso3_set  = set(df["iso3"].dropna().unique())
-    pays_name = (
-        df[["iso3", "pays"]]
-        .dropna(subset=["iso3"])
-        .drop_duplicates("iso3")
-        .set_index("iso3")["pays"]
-        .to_dict()
-    )
+    grand_total = {
+        iso3: round(sum(v for v in types.values()), 1)
+        for iso3, types in totals_iso3.items()
+    }
+    max_val = max(grand_total.values()) if grand_total else 1
+    iso3_set = set(totals_iso3.keys())
 
     print("Téléchargement du GeoJSON…")
-    geo_world  = get_geojson()
-    geo_europe = filter_europe(geo_world, iso3_set)
-
-    # ── Palettes de couleur par année ────────────────────────────────────────
-    default_year = "2023"
-    year_totals = {
-        iso3: totals.get((iso3, default_year), 0)
-        for iso3 in iso3_set
-    }
-    max_val = max(year_totals.values()) if year_totals else 1
+    geo = get_geojson(iso3_set)
 
     colormap = cm.LinearColormap(
-        colors=["#fff7bc", "#fec44f", "#d95f0e", "#7f0000"],
-        vmin=0,
-        vmax=max_val,
-        caption="Importations totales d'énergie fossile (ktoe)",
+        colors=["#fff7bc","#fec44f","#d95f0e","#7f0000"],
+        vmin=0, vmax=max_val,
+        caption="Importations fossiles totales 2023 (ktoe)",
     )
 
-    # ── Carte de base ────────────────────────────────────────────────────────
-    m = folium.Map(
-        location=[54, 15],
-        zoom_start=4,
-        tiles="CartoDB positron",
-        min_zoom=3,
-        max_zoom=8,
-    )
-
-    # ── Données JS embarquées ────────────────────────────────────────────────
-    js_summary = json.dumps(summary, ensure_ascii=False)
-    js_pays    = json.dumps(pays_name, ensure_ascii=False)
-    js_years   = json.dumps(years)
-    js_geo     = json.dumps(geo_europe, ensure_ascii=False)
-    js_colormap_colors = '["#fff7bc","#fec44f","#d95f0e","#7f0000"]'
-
-    # ── Couche choropleth initiale (2023) ────────────────────────────────────
     def style_fn(feature):
-        iso3 = feature["id"]
-        val  = year_totals.get(iso3, 0)
+        val = grand_total.get(feature["id"], 0)
         return {
             "fillColor":   colormap(val) if val else "#cccccc",
-            "color":       "white",
-            "weight":      1.5,
-            "fillOpacity": 0.8,
+            "color":       "white", "weight": 1.5, "fillOpacity": 0.82,
         }
 
-    choropleth = folium.GeoJson(
-        geo_europe,
-        name="pays",
+    m = folium.Map(
+        location=[54, 14], zoom_start=4,
+        tiles="CartoDB positron", min_zoom=3, max_zoom=8,
+    )
+    folium.GeoJson(
+        geo, name="pays",
         style_function=style_fn,
-        highlight_function=lambda x: {
-            "weight": 3,
-            "color": "#333",
-            "fillOpacity": 0.95,
-        },
+        highlight_function=lambda x: {"weight": 3, "color": "#222", "fillOpacity": 0.95},
     ).add_to(m)
-
     colormap.add_to(m)
 
-    # ── HTML complet avec sélecteur d'année et tooltips riches ───────────────
-    html_extra = f"""
+    js_totals   = json.dumps(totals_iso3,   ensure_ascii=False)
+    js_partners = json.dumps(partners_iso3, ensure_ascii=False)
+    js_pays     = json.dumps(pays_iso3,     ensure_ascii=False)
+    js_grand    = json.dumps(grand_total,   ensure_ascii=False)
+    js_colors   = json.dumps(TYPE_COLOR,    ensure_ascii=False)
+    TYPE_ORDER  = ["Charbon","Gaz naturel","Pétrole brut","Produits pétroliers"]
+    js_order    = json.dumps(TYPE_ORDER)
+
+    html = f"""
 <style>
-  #panel {{
-    position: fixed;
-    top: 10px; right: 10px;
-    z-index: 9999;
-    background: rgba(255,255,255,0.96);
-    border-radius: 10px;
-    padding: 14px 18px;
-    box-shadow: 0 2px 12px rgba(0,0,0,.25);
-    font-family: 'Segoe UI', sans-serif;
-    min-width: 220px;
-  }}
-  #panel h3 {{ margin: 0 0 10px; font-size: 13px; color: #333; }}
-  .year-btn {{
-    display: inline-block;
-    margin: 2px 3px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: 1.5px solid #aaa;
-    cursor: pointer;
-    font-size: 12px;
-    background: #f5f5f5;
-    transition: all .15s;
-  }}
-  .year-btn.active {{
-    background: #d95f0e;
-    color: white;
-    border-color: #d95f0e;
-  }}
-  #tooltip-box {{
-    position: fixed;
-    z-index: 9998;
-    background: rgba(255,255,255,0.97);
-    border-radius: 8px;
-    padding: 12px 16px;
-    box-shadow: 0 2px 16px rgba(0,0,0,.3);
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 12px;
-    pointer-events: none;
-    display: none;
-    min-width: 230px;
-    max-width: 280px;
-  }}
-  #tooltip-box h4 {{ margin: 0 0 8px; font-size: 14px; color: #222; }}
-  .bar-row {{ margin: 4px 0; }}
-  .bar-label {{ color: #555; margin-bottom: 2px; }}
-  .bar-outer {{
-    background: #eee; border-radius: 4px; height: 14px; width: 100%;
-    overflow: hidden;
-  }}
-  .bar-inner {{ height: 14px; border-radius: 4px; }}
-  .bar-val {{ font-size: 10px; color: #666; margin-top: 1px; text-align: right; }}
-  .total-line {{
-    margin-top: 8px; padding-top: 6px;
-    border-top: 1px solid #ddd;
-    font-weight: bold; color: #333;
-  }}
-  #legend-title {{
-    font-size: 11px; color: #555; margin-top: 10px; border-top: 1px solid #ddd; padding-top:8px;
-  }}
-  #source-note {{
-    position: fixed;
-    bottom: 30px; left: 10px;
-    z-index: 9999;
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 10px;
-    color: #666;
-    background: rgba(255,255,255,0.85);
-    padding: 4px 8px;
-    border-radius: 4px;
-  }}
+* {{ box-sizing: border-box; }}
+#info-panel {{
+  position: fixed; top: 12px; right: 12px; z-index: 9999;
+  background: rgba(255,255,255,0.97); border-radius: 10px;
+  padding: 14px 18px; box-shadow: 0 2px 14px rgba(0,0,0,.22);
+  font-family: 'Segoe UI', Arial, sans-serif; min-width: 230px; max-width: 260px;
+}}
+#info-panel h3 {{ margin: 0 0 6px; font-size: 13px; color: #222; }}
+#info-panel .subtitle {{ font-size: 11px; color: #777; margin-bottom: 10px; }}
+.legend-bar {{ display: flex; align-items: center; gap: 7px; margin: 4px 0; font-size: 11px; color: #444; }}
+.legend-swatch {{ width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; }}
+#info-panel .source {{ margin-top: 10px; padding-top: 8px; border-top: 1px solid #e0e0e0; font-size: 10px; color: #999; line-height: 1.5; }}
+#tooltip-box {{
+  position: fixed; z-index: 9998;
+  background: rgba(255,255,255,0.98); border-radius: 10px;
+  padding: 14px 16px; box-shadow: 0 4px 20px rgba(0,0,0,.28);
+  font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px;
+  pointer-events: none; display: none; min-width: 290px; max-width: 350px;
+}}
+#tooltip-box h4 {{ margin: 0 0 10px; font-size: 14px; color: #111; border-bottom: 2px solid #eee; padding-bottom: 6px; }}
+.energy-block {{ margin-bottom: 12px; }}
+.energy-title {{ font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .4px; margin-bottom: 4px; color: #444; display: flex; align-items: center; gap: 5px; }}
+.energy-title .dot {{ width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }}
+.ktoe-total {{ font-size: 13px; font-weight: 700; color: #222; margin-bottom: 4px; }}
+.bar-outer {{ background: #eee; border-radius: 4px; height: 6px; width: 100%; margin-bottom: 5px; overflow: hidden; }}
+.bar-inner {{ height: 6px; border-radius: 4px; }}
+.partners-title {{ font-size: 10px; color: #888; margin: 3px 0 2px; font-style: italic; }}
+.partner-row {{ display: flex; justify-content: space-between; font-size: 11px; color: #444; padding: 1px 0; }}
+.partner-rank {{ color: #bbb; margin-right: 3px; }}
+.partner-val {{ color: #888; font-size: 10px; }}
+.grand-total {{ margin-top: 10px; padding-top: 8px; border-top: 2px solid #eee; font-size: 13px; font-weight: 700; color: #111; display: flex; justify-content: space-between; }}
 </style>
 
-<div id="panel">
-  <h3>🛢️ Importations d'énergie fossile</h3>
-  <div id="year-btns"></div>
-  <div id="legend-title">
-    Source : Eurostat (nrg_ti_sff, nrg_ti_gas, nrg_ti_oil)<br>
-    Unité : ktoe — kilotonnes d'éq. pétrole
-  </div>
+<div id="info-panel">
+  <h3>🛢️ Importations d'énergie fossile en Europe</h3>
+  <div class="subtitle">Année 2023 — unité : ktoe</div>
+  <div class="legend-bar"><span class="legend-swatch" style="background:#4a4a4a"></span>Charbon</div>
+  <div class="legend-bar"><span class="legend-swatch" style="background:#e86c1f"></span>Gaz naturel</div>
+  <div class="legend-bar"><span class="legend-swatch" style="background:#8b0000"></span>Pétrole brut</div>
+  <div class="legend-bar"><span class="legend-swatch" style="background:#c0392b"></span>Produits pétroliers</div>
+  <div class="source">Source : Eurostat (nrg_ti_sff, nrg_ti_gas, nrg_ti_oil)<br>ktoe = kilotonnes équivalent pétrole<br>Survoler un pays pour le détail</div>
 </div>
 
 <div id="tooltip-box"></div>
-<div id="source-note">© Eurostat 2026 — Données 2019-2023</div>
 
 <script>
 (function() {{
-
-  const SUMMARY  = {js_summary};
+  const TOTALS   = {js_totals};
+  const PARTNERS = {js_partners};
   const PAYS     = {js_pays};
-  const YEARS    = {js_years};
-  const GEO      = {js_geo};
-  const COLORS   = {{
-    "Charbon":          "#4a4a4a",
-    "Gaz naturel":      "#e86c1f",
-    "Pétrole brut":     "#8b0000",
-    "Prod. pétroliers": "#c0392b"
-  }};
-  const TYPE_ORDER = ["Charbon","Gaz naturel","Pétrole brut","Prod. pétroliers"];
-  const COLOR_STEPS = {js_colormap_colors};
+  const GRAND    = {js_grand};
+  const COLORS   = {js_colors};
+  const ORDER    = {js_order};
+  const tooltip  = document.getElementById('tooltip-box');
 
-  let currentYear = "2023";
+  function fmt(n) {{ return Math.round(n).toLocaleString('fr-FR'); }}
 
-  // ── Calcule totaux par pays/année ────────────────────────────────────────
-  function getTotal(iso3, year) {{
-    if (!SUMMARY[iso3] || !SUMMARY[iso3][year]) return 0;
-    return Object.values(SUMMARY[iso3][year]).reduce((a,b) => a+b, 0);
+  function showTooltip(e, iso3) {{
+    const nom    = PAYS[iso3] || iso3;
+    const types  = TOTALS[iso3]   || {{}};
+    const ptns   = PARTNERS[iso3] || {{}};
+    const gtotal = GRAND[iso3]    || 0;
+    if (!gtotal) {{ tooltip.style.display = 'none'; return; }}
+
+    const maxType = Math.max(...ORDER.map(t => types[t] || 0), 1);
+
+    const blocks = ORDER.map(t => {{
+      const val = types[t]; if (!val) return '';
+      const col  = COLORS[t] || '#888';
+      const pct  = Math.round((val / maxType) * 100);
+      const pList= (ptns[t] || []).map((p, i) =>
+        `<div class="partner-row"><span><span class="partner-rank">${{i+1}}.</span>${{p.pays}}</span><span class="partner-val">${{fmt(p.ktoe)}} ktoe</span></div>`
+      ).join('');
+      return `<div class="energy-block">
+        <div class="energy-title"><span class="dot" style="background:${{col}}"></span>${{t}}</div>
+        <div class="ktoe-total">${{fmt(val)}} ktoe</div>
+        <div class="bar-outer"><div class="bar-inner" style="width:${{pct}}%;background:${{col}}"></div></div>
+        ${{pList ? '<div class="partners-title">🌍 Principaux fournisseurs :</div>' + pList : ''}}
+      </div>`;
+    }}).join('');
+
+    tooltip.innerHTML = `<h4>🏳️ ${{nom}}</h4>${{blocks}}<div class="grand-total"><span>Total fossile 2023</span><span>${{fmt(gtotal)}} ktoe</span></div>`;
+    tooltip.style.display = 'block';
+    moveTooltip(e);
   }}
 
-  // ── Colormap linéaire ────────────────────────────────────────────────────
-  function lerp(a, b, t) {{
-    return a.map((v,i) => Math.round(v + (b[i]-v)*t));
-  }}
-  function hexToRgb(h) {{
-    const r = parseInt(h.slice(1,3),16),
-          g = parseInt(h.slice(3,5),16),
-          b = parseInt(h.slice(5,7),16);
-    return [r,g,b];
-  }}
-  function rgbToHex([r,g,b]) {{
-    return '#' + [r,g,b].map(x => x.toString(16).padStart(2,'0')).join('');
+  function moveTooltip(e) {{
+    const ev = e.originalEvent || e;
+    const x = ev.clientX, y = ev.clientY;
+    const w = tooltip.offsetWidth || 320, h = tooltip.offsetHeight || 320;
+    const vw = window.innerWidth,   vh = window.innerHeight;
+    tooltip.style.left = (x + 18 + w > vw ? x - w - 10 : x + 18) + 'px';
+    tooltip.style.top  = (y + 18 + h > vh ? y - h - 10 : y + 18) + 'px';
   }}
 
-  function getColor(val, maxVal) {{
-    if (!val || maxVal === 0) return "#cccccc";
-    const stops = COLOR_STEPS.map(hexToRgb);
-    const t = Math.min(val / maxVal, 1) * (stops.length - 1);
-    const i = Math.floor(t);
-    const frac = t - i;
-    const rgb = lerp(stops[Math.min(i, stops.length-2)],
-                     stops[Math.min(i+1, stops.length-1)], frac);
-    return rgbToHex(rgb);
-  }}
-
-  // ── Attente du chargement de la carte Folium ─────────────────────────────
-  function waitForMap(cb) {{
-    const id = setInterval(() => {{
-      if (typeof window._map !== 'undefined') {{
-        clearInterval(id);
-        cb(window._map);
-      }}
-    }}, 100);
-  }}
-
-  function initMap(map) {{
-    // Boutons années
-    const btnDiv = document.getElementById('year-btns');
-    YEARS.forEach(y => {{
-      const btn = document.createElement('span');
-      btn.className = 'year-btn' + (y === currentYear ? ' active' : '');
-      btn.textContent = y;
-      btn.onclick = () => {{
-        currentYear = y;
-        document.querySelectorAll('.year-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        updateLayer();
-      }};
-      btnDiv.appendChild(btn);
-    }});
-
-    // Trouver la couche GeoJSON de Folium
-    let geoLayer = null;
-    map.eachLayer(l => {{
-      if (l.feature !== undefined || (l.getLayers && l.getLayers().length > 0 && l.getLayers()[0].feature)) {{
-        geoLayer = l;
-      }}
-    }});
-
-    // Recalcule maxVal pour l'année courante
-    function getMaxVal(year) {{
-      return Math.max(...Object.keys(SUMMARY).map(iso3 => getTotal(iso3, year)), 1);
-    }}
-
-    function updateLayer() {{
-      const maxVal = getMaxVal(currentYear);
-      if (!geoLayer) return;
-      geoLayer.eachLayer(layer => {{
-        const iso3 = layer.feature && layer.feature.id;
-        if (!iso3) return;
-        const val = getTotal(iso3, currentYear);
-        layer.setStyle({{
-          fillColor:   getColor(val, maxVal),
-          color:       "white",
-          weight:      1.5,
-          fillOpacity: 0.85,
-        }});
+  function waitAndInit() {{
+    const key = Object.keys(window).find(k => k.startsWith('map_'));
+    if (!key) {{ setTimeout(waitAndInit, 120); return; }}
+    window[key].eachLayer(l => {{
+      if (!l.eachLayer) return;
+      l.eachLayer(sub => {{
+        if (!sub.feature) return;
+        sub.on('mouseover', e => showTooltip(e, sub.feature.id));
+        sub.on('mousemove', e => moveTooltip(e));
+        sub.on('mouseout',  () => {{ tooltip.style.display = 'none'; }});
       }});
-      // Mise à jour légende
-      updateLegend(maxVal);
-    }}
-
-    function updateLegend(maxVal) {{
-      const legEl = document.querySelector('.legend');
-      if (!legEl) return;
-      // On laisse folium gérer la légende
-    }}
-
-    // ── Tooltip personnalisé ─────────────────────────────────────────────
-    const tooltip = document.getElementById('tooltip-box');
-
-    function showTooltip(e, iso3) {{
-      const data = SUMMARY[iso3] && SUMMARY[iso3][currentYear];
-      const nom  = PAYS[iso3] || iso3;
-      if (!data) {{
-        tooltip.style.display = 'none';
-        return;
-      }}
-      const total = Object.values(data).reduce((a,b) => a+b, 0);
-      const maxBar = Math.max(...Object.values(data), 1);
-
-      let rows = TYPE_ORDER.map(t => {{
-        if (!data[t]) return '';
-        const pct = Math.round((data[t] / maxBar) * 100);
-        const col = COLORS[t] || '#888';
-        return `
-          <div class="bar-row">
-            <div class="bar-label">${{t}}</div>
-            <div class="bar-outer">
-              <div class="bar-inner" style="width:${{pct}}%;background:${{col}}"></div>
-            </div>
-            <div class="bar-val">${{data[t].toLocaleString('fr-FR')}} ktoe</div>
-          </div>`;
-      }}).join('');
-
-      tooltip.innerHTML = `
-        <h4>🏳️ ${{nom}} — ${{currentYear}}</h4>
-        ${{rows}}
-        <div class="total-line">Total : ${{Math.round(total).toLocaleString('fr-FR')}} ktoe</div>`;
-      tooltip.style.display = 'block';
-      positionTooltip(e);
-    }}
-
-    function positionTooltip(e) {{
-      const x = e.originalEvent ? e.originalEvent.clientX : e.clientX;
-      const y = e.originalEvent ? e.originalEvent.clientY : e.clientY;
-      const w = tooltip.offsetWidth  || 260;
-      const h = tooltip.offsetHeight || 200;
-      const vw = window.innerWidth, vh = window.innerHeight;
-      tooltip.style.left = (x + 16 + w > vw ? x - w - 12 : x + 16) + 'px';
-      tooltip.style.top  = (y + 16 + h > vh ? y - h - 10 : y + 16) + 'px';
-    }}
-
-    if (geoLayer) {{
-      geoLayer.eachLayer(layer => {{
-        layer.on('mouseover', e => showTooltip(e, layer.feature && layer.feature.id));
-        layer.on('mousemove', e => positionTooltip(e));
-        layer.on('mouseout',  () => {{ tooltip.style.display = 'none'; }});
-      }});
-    }}
-
-    document.addEventListener('mousemove', e => {{
-      if (tooltip.style.display !== 'none') {{
-        tooltip.style.left = (e.clientX + 16) + 'px';
-        tooltip.style.top  = (e.clientY + 16) + 'px';
-      }}
     }});
-
-    updateLayer();
   }}
-
-  // Récupère la carte Folium depuis l'objet global créé par folium
-  function findLeafletMap() {{
-    // Folium stocke la carte dans une var globale nommée map_XXXX
-    const keys = Object.keys(window).filter(k => k.startsWith('map_'));
-    if (keys.length > 0) {{
-      window._map = window[keys[0]];
-      return true;
-    }}
-    return false;
-  }}
-
-  document.addEventListener('DOMContentLoaded', () => {{
-    const check = setInterval(() => {{
-      if (findLeafletMap()) {{
-        clearInterval(check);
-        initMap(window._map);
-      }}
-    }}, 150);
-  }});
+  document.addEventListener('DOMContentLoaded', waitAndInit);
 }})();
 </script>
 """
-
-    # Injection dans la carte
-    m.get_root().html.add_child(folium.Element(html_extra))
-
+    m.get_root().html.add_child(folium.Element(html))
     m.save(out_path)
-    print(f"✓ Carte créée : {out_path}")
+    print(f"✓ Carte sauvegardée : {out_path}")
 
 
 def main():
-    csv_path = "eurostat_fossil_energy_imports.csv"
-    out_path = "carte_energie_fossile_europe.html"
-
-    print("Lecture des données…")
-    df = load_data(csv_path)
-
-    print(f"  {len(df)} lignes chargées — {df['geo_code'].nunique()} pays")
-    print(f"  Années : {sorted(df['annee'].astype(str).unique())}")
-
-    make_map(df, out_path)
+    print("=" * 60)
+    print(f"Génération de la carte — données Eurostat {YEAR}")
+    print("=" * 60)
+    print("\nRécupération des données Eurostat…")
+    country_totals, country_partners = build_data()
+    print(f"\n  {len(country_totals)} pays avec données")
+    make_map(country_totals, country_partners, "carte_energie_fossile_europe.html")
 
 
 if __name__ == "__main__":
