@@ -552,18 +552,26 @@ function openPanel(iso3){
 
 // Initialisation
 let map;
+let justOpenedPanel = false;
+
 function waitAndInit(){
   const key = Object.keys(window).find(k=>k.startsWith('map_'));
   if(!key){ setTimeout(waitAndInit,120); return; }
   map = window[key];
+
   map.eachLayer(l=>{
     if(!l.eachLayer) return;
     l.eachLayer(sub=>{
       if(!sub.feature) return;
-      sub.on('click', ()=> openPanel(sub.feature.id));
+      sub.on('click', function(e){
+        // Stopper la propagation pour éviter que map.on('click') se déclenche
+        L.DomEvent.stopPropagation(e);
+        openPanel(sub.feature.id);
+      });
     });
   });
-  // Fermer panneau si clic sur la carte (hors pays)
+
+  // Fermer le panneau sur clic dans la carte (hors pays)
   map.on('click', ()=>{
     if(activeIso3){ closePanel(); }
   });
