@@ -1,0 +1,604 @@
+﻿pays,geo_code,annee,type_energie,siec_code,siec_label,valeur,unite,unite_label
+Allemagne,DE,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,43007.711,THS_T,Thousand tonnes
+Allemagne,DE,2019,Gaz naturel,G3000,Natural gas,3520264.903,TJ_GCV,Terajoule (gross calorific value - GCV)
+Allemagne,DE,2019,Pétrole brut,O4100_TOT,Crude oil,85991.0,THS_T,Thousand tonnes
+Allemagne,DE,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),128004.0,THS_T,Thousand tonnes
+Allemagne,DE,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,31281.095,THS_T,Thousand tonnes
+Allemagne,DE,2020,Gaz naturel,G3000,Natural gas,3092272.826,TJ_GCV,Terajoule (gross calorific value - GCV)
+Allemagne,DE,2020,Pétrole brut,O4100_TOT,Crude oil,82724.0,THS_T,Thousand tonnes
+Allemagne,DE,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),117324.0,THS_T,Thousand tonnes
+Allemagne,DE,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,40851.878,THS_T,Thousand tonnes
+Allemagne,DE,2021,Gaz naturel,G3000,Natural gas,3256078.881,TJ_GCV,Terajoule (gross calorific value - GCV)
+Allemagne,DE,2021,Pétrole brut,O4100_TOT,Crude oil,81296.0,THS_T,Thousand tonnes
+Allemagne,DE,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),117911.0,THS_T,Thousand tonnes
+Allemagne,DE,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,44791.061,THS_T,Thousand tonnes
+Allemagne,DE,2022,Gaz naturel,G3000,Natural gas,3288950.483,TJ_GCV,Terajoule (gross calorific value - GCV)
+Allemagne,DE,2022,Pétrole brut,O4100_TOT,Crude oil,88248.0,THS_T,Thousand tonnes
+Allemagne,DE,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),123642.0,THS_T,Thousand tonnes
+Allemagne,DE,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,33025.415,THS_T,Thousand tonnes
+Allemagne,DE,2023,Gaz naturel,G3000,Natural gas,2791205.404,TJ_GCV,Terajoule (gross calorific value - GCV)
+Allemagne,DE,2023,Pétrole brut,O4100_TOT,Crude oil,77197.0,THS_T,Thousand tonnes
+Allemagne,DE,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),113017.0,THS_T,Thousand tonnes
+Autriche,AT,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,4108.781,THS_T,Thousand tonnes
+Autriche,AT,2019,Gaz naturel,G3000,Natural gas,438712.874,TJ_GCV,Terajoule (gross calorific value - GCV)
+Autriche,AT,2019,Pétrole brut,O4100_TOT,Crude oil,8592.104,THS_T,Thousand tonnes
+Autriche,AT,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),14971.199,THS_T,Thousand tonnes
+Autriche,AT,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,3601.243,THS_T,Thousand tonnes
+Autriche,AT,2020,Gaz naturel,G3000,Natural gas,249840.296,TJ_GCV,Terajoule (gross calorific value - GCV)
+Autriche,AT,2020,Pétrole brut,O4100_TOT,Crude oil,7525.355,THS_T,Thousand tonnes
+Autriche,AT,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),13426.399,THS_T,Thousand tonnes
+Autriche,AT,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,3764.317,THS_T,Thousand tonnes
+Autriche,AT,2021,Gaz naturel,G3000,Natural gas,183498.438,TJ_GCV,Terajoule (gross calorific value - GCV)
+Autriche,AT,2021,Pétrole brut,O4100_TOT,Crude oil,7567.16,THS_T,Thousand tonnes
+Autriche,AT,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),13372.144,THS_T,Thousand tonnes
+Autriche,AT,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,3602.595,THS_T,Thousand tonnes
+Autriche,AT,2022,Gaz naturel,G3000,Natural gas,477943.193,TJ_GCV,Terajoule (gross calorific value - GCV)
+Autriche,AT,2022,Pétrole brut,O4100_TOT,Crude oil,5137.619,THS_T,Thousand tonnes
+Autriche,AT,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),12301.386,THS_T,Thousand tonnes
+Autriche,AT,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,3518.501,THS_T,Thousand tonnes
+Autriche,AT,2023,Gaz naturel,G3000,Natural gas,278578.858,TJ_GCV,Terajoule (gross calorific value - GCV)
+Autriche,AT,2023,Pétrole brut,O4100_TOT,Crude oil,7567.778,THS_T,Thousand tonnes
+Autriche,AT,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),13110.063,THS_T,Thousand tonnes
+Belgique,BE,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,4619.4,THS_T,Thousand tonnes
+Belgique,BE,2019,Gaz naturel,G3000,Natural gas,895514.7,TJ_GCV,Terajoule (gross calorific value - GCV)
+Belgique,BE,2019,Pétrole brut,O4100_TOT,Crude oil,34513.4,THS_T,Thousand tonnes
+Belgique,BE,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),62916.4,THS_T,Thousand tonnes
+Belgique,BE,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,3727.2,THS_T,Thousand tonnes
+Belgique,BE,2020,Gaz naturel,G3000,Natural gas,833015.1,TJ_GCV,Terajoule (gross calorific value - GCV)
+Belgique,BE,2020,Pétrole brut,O4100_TOT,Crude oil,27322.9,THS_T,Thousand tonnes
+Belgique,BE,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),52847.5,THS_T,Thousand tonnes
+Belgique,BE,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,3608.7,THS_T,Thousand tonnes
+Belgique,BE,2021,Gaz naturel,G3000,Natural gas,818197.4,TJ_GCV,Terajoule (gross calorific value - GCV)
+Belgique,BE,2021,Pétrole brut,O4100_TOT,Crude oil,28686.2,THS_T,Thousand tonnes
+Belgique,BE,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),57556.6,THS_T,Thousand tonnes
+Belgique,BE,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,4082.8,THS_T,Thousand tonnes
+Belgique,BE,2022,Gaz naturel,G3000,Natural gas,940534.5,TJ_GCV,Terajoule (gross calorific value - GCV)
+Belgique,BE,2022,Pétrole brut,O4100_TOT,Crude oil,27694.3,THS_T,Thousand tonnes
+Belgique,BE,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),55291.2,THS_T,Thousand tonnes
+Belgique,BE,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,3642.8,THS_T,Thousand tonnes
+Belgique,BE,2023,Gaz naturel,G3000,Natural gas,889170.5,TJ_GCV,Terajoule (gross calorific value - GCV)
+Belgique,BE,2023,Pétrole brut,O4100_TOT,Crude oil,30169.0,THS_T,Thousand tonnes
+Belgique,BE,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),56251.2,THS_T,Thousand tonnes
+Bulgarie,BG,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,620.281,THS_T,Thousand tonnes
+Bulgarie,BG,2019,Gaz naturel,G3000,Natural gas,114340.926,TJ_GCV,Terajoule (gross calorific value - GCV)
+Bulgarie,BG,2019,Pétrole brut,O4100_TOT,Crude oil,6984.887,THS_T,Thousand tonnes
+Bulgarie,BG,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),9257.498,THS_T,Thousand tonnes
+Bulgarie,BG,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,661.034,THS_T,Thousand tonnes
+Bulgarie,BG,2020,Gaz naturel,G3000,Natural gas,113216.607,TJ_GCV,Terajoule (gross calorific value - GCV)
+Bulgarie,BG,2020,Pétrole brut,O4100_TOT,Crude oil,4858.519,THS_T,Thousand tonnes
+Bulgarie,BG,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),7144.493,THS_T,Thousand tonnes
+Bulgarie,BG,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,914.257,THS_T,Thousand tonnes
+Bulgarie,BG,2021,Gaz naturel,G3000,Natural gas,127189.712,TJ_GCV,Terajoule (gross calorific value - GCV)
+Bulgarie,BG,2021,Pétrole brut,O4100_TOT,Crude oil,4153.028,THS_T,Thousand tonnes
+Bulgarie,BG,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),6500.345,THS_T,Thousand tonnes
+Bulgarie,BG,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,1427.356,THS_T,Thousand tonnes
+Bulgarie,BG,2022,Gaz naturel,G3000,Natural gas,114775.111,TJ_GCV,Terajoule (gross calorific value - GCV)
+Bulgarie,BG,2022,Pétrole brut,O4100_TOT,Crude oil,7108.78,THS_T,Thousand tonnes
+Bulgarie,BG,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),9266.279,THS_T,Thousand tonnes
+Bulgarie,BG,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,644.644,THS_T,Thousand tonnes
+Bulgarie,BG,2023,Gaz naturel,G3000,Natural gas,100744.314,TJ_GCV,Terajoule (gross calorific value - GCV)
+Bulgarie,BG,2023,Pétrole brut,O4100_TOT,Crude oil,6247.185,THS_T,Thousand tonnes
+Bulgarie,BG,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),8196.816,THS_T,Thousand tonnes
+Chypre,CY,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,32.454,THS_T,Thousand tonnes
+Chypre,CY,2019,Gaz naturel,G3000,Natural gas,0.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Chypre,CY,2019,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Chypre,CY,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),2591.794,THS_T,Thousand tonnes
+Chypre,CY,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,23.643,THS_T,Thousand tonnes
+Chypre,CY,2020,Gaz naturel,G3000,Natural gas,0.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Chypre,CY,2020,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Chypre,CY,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),2250.251,THS_T,Thousand tonnes
+Chypre,CY,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,64.823,THS_T,Thousand tonnes
+Chypre,CY,2021,Gaz naturel,G3000,Natural gas,0.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Chypre,CY,2021,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Chypre,CY,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),2259.573,THS_T,Thousand tonnes
+Chypre,CY,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,77.65,THS_T,Thousand tonnes
+Chypre,CY,2022,Gaz naturel,G3000,Natural gas,0.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Chypre,CY,2022,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Chypre,CY,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),2460.284,THS_T,Thousand tonnes
+Chypre,CY,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,22.002,THS_T,Thousand tonnes
+Chypre,CY,2023,Gaz naturel,G3000,Natural gas,0.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Chypre,CY,2023,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Chypre,CY,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),2489.344,THS_T,Thousand tonnes
+Croatie,HR,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,768.2,THS_T,Thousand tonnes
+Croatie,HR,2019,Gaz naturel,G3000,Natural gas,77108.64,TJ_GCV,Terajoule (gross calorific value - GCV)
+Croatie,HR,2019,Pétrole brut,O4100_TOT,Crude oil,2006.0,THS_T,Thousand tonnes
+Croatie,HR,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),4813.9,THS_T,Thousand tonnes
+Croatie,HR,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,639.6,THS_T,Thousand tonnes
+Croatie,HR,2020,Gaz naturel,G3000,Natural gas,82818.277,TJ_GCV,Terajoule (gross calorific value - GCV)
+Croatie,HR,2020,Pétrole brut,O4100_TOT,Crude oil,1943.8,THS_T,Thousand tonnes
+Croatie,HR,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),4409.8,THS_T,Thousand tonnes
+Croatie,HR,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,704.8,THS_T,Thousand tonnes
+Croatie,HR,2021,Gaz naturel,G3000,Natural gas,89078.889,TJ_GCV,Terajoule (gross calorific value - GCV)
+Croatie,HR,2021,Pétrole brut,O4100_TOT,Crude oil,1761.7,THS_T,Thousand tonnes
+Croatie,HR,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),4564.6,THS_T,Thousand tonnes
+Croatie,HR,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,683.1,THS_T,Thousand tonnes
+Croatie,HR,2022,Gaz naturel,G3000,Natural gas,118509.944,TJ_GCV,Terajoule (gross calorific value - GCV)
+Croatie,HR,2022,Pétrole brut,O4100_TOT,Crude oil,1473.9,THS_T,Thousand tonnes
+Croatie,HR,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),4757.2,THS_T,Thousand tonnes
+Croatie,HR,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,637.7,THS_T,Thousand tonnes
+Croatie,HR,2023,Gaz naturel,G3000,Natural gas,117935.5,TJ_GCV,Terajoule (gross calorific value - GCV)
+Croatie,HR,2023,Pétrole brut,O4100_TOT,Crude oil,1354.8,THS_T,Thousand tonnes
+Croatie,HR,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),4866.9,THS_T,Thousand tonnes
+Danemark,DK,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,2396.234,THS_T,Thousand tonnes
+Danemark,DK,2019,Gaz naturel,G3000,Natural gas,46506.113,TJ_GCV,Terajoule (gross calorific value - GCV)
+Danemark,DK,2019,Pétrole brut,O4100_TOT,Crude oil,5037.16,THS_T,Thousand tonnes
+Danemark,DK,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),12247.675,THS_T,Thousand tonnes
+Danemark,DK,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,1122.166,THS_T,Thousand tonnes
+Danemark,DK,2020,Gaz naturel,G3000,Natural gas,103034.296,TJ_GCV,Terajoule (gross calorific value - GCV)
+Danemark,DK,2020,Pétrole brut,O4100_TOT,Crude oil,4668.226,THS_T,Thousand tonnes
+Danemark,DK,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),11653.338,THS_T,Thousand tonnes
+Danemark,DK,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,785.909,THS_T,Thousand tonnes
+Danemark,DK,2021,Gaz naturel,G3000,Natural gas,96488.788,TJ_GCV,Terajoule (gross calorific value - GCV)
+Danemark,DK,2021,Pétrole brut,O4100_TOT,Crude oil,5184.4,THS_T,Thousand tonnes
+Danemark,DK,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),9921.399,THS_T,Thousand tonnes
+Danemark,DK,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,1883.339,THS_T,Thousand tonnes
+Danemark,DK,2022,Gaz naturel,G3000,Natural gas,107061.839,TJ_GCV,Terajoule (gross calorific value - GCV)
+Danemark,DK,2022,Pétrole brut,O4100_TOT,Crude oil,4457.624,THS_T,Thousand tonnes
+Danemark,DK,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),10345.957,THS_T,Thousand tonnes
+Danemark,DK,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,1296.4,THS_T,Thousand tonnes
+Danemark,DK,2023,Gaz naturel,G3000,Natural gas,343487.284,TJ_GCV,Terajoule (gross calorific value - GCV)
+Danemark,DK,2023,Pétrole brut,O4100_TOT,Crude oil,4726.181,THS_T,Thousand tonnes
+Danemark,DK,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),9953.698,THS_T,Thousand tonnes
+Espagne,ES,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,9427.0,THS_T,Thousand tonnes
+Espagne,ES,2019,Gaz naturel,G3000,Natural gas,1506011.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Espagne,ES,2019,Pétrole brut,O4100_TOT,Crude oil,66303.0,THS_T,Thousand tonnes
+Espagne,ES,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),87488.0,THS_T,Thousand tonnes
+Espagne,ES,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,4856.0,THS_T,Thousand tonnes
+Espagne,ES,2020,Gaz naturel,G3000,Natural gas,1314814.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Espagne,ES,2020,Pétrole brut,O4100_TOT,Crude oil,54855.0,THS_T,Thousand tonnes
+Espagne,ES,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),73732.0,THS_T,Thousand tonnes
+Espagne,ES,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,6075.0,THS_T,Thousand tonnes
+Espagne,ES,2021,Gaz naturel,G3000,Natural gas,1496249.72,TJ_GCV,Terajoule (gross calorific value - GCV)
+Espagne,ES,2021,Pétrole brut,O4100_TOT,Crude oil,56171.787,THS_T,Thousand tonnes
+Espagne,ES,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),76369.961,THS_T,Thousand tonnes
+Espagne,ES,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,10363.48,THS_T,Thousand tonnes
+Espagne,ES,2022,Gaz naturel,G3000,Natural gas,1606503.304,TJ_GCV,Terajoule (gross calorific value - GCV)
+Espagne,ES,2022,Pétrole brut,O4100_TOT,Crude oil,63691.533,THS_T,Thousand tonnes
+Espagne,ES,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),82888.491,THS_T,Thousand tonnes
+Espagne,ES,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,6942.533,THS_T,Thousand tonnes
+Espagne,ES,2023,Gaz naturel,G3000,Natural gas,1427163.159,TJ_GCV,Terajoule (gross calorific value - GCV)
+Espagne,ES,2023,Pétrole brut,O4100_TOT,Crude oil,61558.654,THS_T,Thousand tonnes
+Espagne,ES,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),80860.432,THS_T,Thousand tonnes
+Estonie,EE,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,48.695,THS_T,Thousand tonnes
+Estonie,EE,2019,Gaz naturel,G3000,Natural gas,18642.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Estonie,EE,2019,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Estonie,EE,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),1829.695,THS_T,Thousand tonnes
+Estonie,EE,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,3.5,THS_T,Thousand tonnes
+Estonie,EE,2020,Gaz naturel,G3000,Natural gas,17202.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Estonie,EE,2020,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Estonie,EE,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),2188.439,THS_T,Thousand tonnes
+Estonie,EE,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,5.3,THS_T,Thousand tonnes
+Estonie,EE,2021,Gaz naturel,G3000,Natural gas,19453.87,TJ_GCV,Terajoule (gross calorific value - GCV)
+Estonie,EE,2021,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Estonie,EE,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),2012.038,THS_T,Thousand tonnes
+Estonie,EE,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,3.0,THS_T,Thousand tonnes
+Estonie,EE,2022,Gaz naturel,G3000,Natural gas,16193.1,TJ_GCV,Terajoule (gross calorific value - GCV)
+Estonie,EE,2022,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Estonie,EE,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),1677.666,THS_T,Thousand tonnes
+Estonie,EE,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,5.08,THS_T,Thousand tonnes
+Estonie,EE,2023,Gaz naturel,G3000,Natural gas,12518.7,TJ_GCV,Terajoule (gross calorific value - GCV)
+Estonie,EE,2023,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Estonie,EE,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),1386.084,THS_T,Thousand tonnes
+Finlande,FI,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,3478.0,THS_T,Thousand tonnes
+Finlande,FI,2019,Gaz naturel,G3000,Natural gas,99553.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Finlande,FI,2019,Pétrole brut,O4100_TOT,Crude oil,11901.0,THS_T,Thousand tonnes
+Finlande,FI,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),17695.0,THS_T,Thousand tonnes
+Finlande,FI,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,2733.0,THS_T,Thousand tonnes
+Finlande,FI,2020,Gaz naturel,G3000,Natural gas,98580.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Finlande,FI,2020,Pétrole brut,O4100_TOT,Crude oil,10717.0,THS_T,Thousand tonnes
+Finlande,FI,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),16819.0,THS_T,Thousand tonnes
+Finlande,FI,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,2353.0,THS_T,Thousand tonnes
+Finlande,FI,2021,Gaz naturel,G3000,Natural gas,98444.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Finlande,FI,2021,Pétrole brut,O4100_TOT,Crude oil,7820.0,THS_T,Thousand tonnes
+Finlande,FI,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),13484.0,THS_T,Thousand tonnes
+Finlande,FI,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,4319.0,THS_T,Thousand tonnes
+Finlande,FI,2022,Gaz naturel,G3000,Natural gas,52921.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Finlande,FI,2022,Pétrole brut,O4100_TOT,Crude oil,9130.0,THS_T,Thousand tonnes
+Finlande,FI,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),15861.0,THS_T,Thousand tonnes
+Finlande,FI,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,1887.0,THS_T,Thousand tonnes
+Finlande,FI,2023,Gaz naturel,G3000,Natural gas,68610.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Finlande,FI,2023,Pétrole brut,O4100_TOT,Crude oil,9478.0,THS_T,Thousand tonnes
+Finlande,FI,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),14697.0,THS_T,Thousand tonnes
+France,FR,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,10984.974,THS_T,Thousand tonnes
+France,FR,2019,Gaz naturel,G3000,Natural gas,2200075.392,TJ_GCV,Terajoule (gross calorific value - GCV)
+France,FR,2019,Pétrole brut,O4100_TOT,Crude oil,48335.0,THS_T,Thousand tonnes
+France,FR,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),93585.013,THS_T,Thousand tonnes
+France,FR,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,7703.911,THS_T,Thousand tonnes
+France,FR,2020,Gaz naturel,G3000,Natural gas,1873094.214,TJ_GCV,Terajoule (gross calorific value - GCV)
+France,FR,2020,Pétrole brut,O4100_TOT,Crude oil,33121.0,THS_T,Thousand tonnes
+France,FR,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),76093.76,THS_T,Thousand tonnes
+France,FR,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,9371.871,THS_T,Thousand tonnes
+France,FR,2021,Gaz naturel,G3000,Natural gas,1876948.944,TJ_GCV,Terajoule (gross calorific value - GCV)
+France,FR,2021,Pétrole brut,O4100_TOT,Crude oil,33831.879,THS_T,Thousand tonnes
+France,FR,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),78983.808,THS_T,Thousand tonnes
+France,FR,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,9126.354,THS_T,Thousand tonnes
+France,FR,2022,Gaz naturel,G3000,Natural gas,2299704.749,TJ_GCV,Terajoule (gross calorific value - GCV)
+France,FR,2022,Pétrole brut,O4100_TOT,Crude oil,41016.0,THS_T,Thousand tonnes
+France,FR,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),81715.219,THS_T,Thousand tonnes
+France,FR,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,6720.779,THS_T,Thousand tonnes
+France,FR,2023,Gaz naturel,G3000,Natural gas,1914950.902,TJ_GCV,Terajoule (gross calorific value - GCV)
+France,FR,2023,Pétrole brut,O4100_TOT,Crude oil,45506.0,THS_T,Thousand tonnes
+France,FR,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),82800.021,THS_T,Thousand tonnes
+Grèce,EL,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,326.51,THS_T,Thousand tonnes
+Grèce,EL,2019,Gaz naturel,G3000,Natural gas,207357.66,TJ_GCV,Terajoule (gross calorific value - GCV)
+Grèce,EL,2019,Pétrole brut,O4100_TOT,Crude oil,22826.007,THS_T,Thousand tonnes
+Grèce,EL,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),32620.164,THS_T,Thousand tonnes
+Grèce,EL,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,304.352,THS_T,Thousand tonnes
+Grèce,EL,2020,Gaz naturel,G3000,Natural gas,232184.513,TJ_GCV,Terajoule (gross calorific value - GCV)
+Grèce,EL,2020,Pétrole brut,O4100_TOT,Crude oil,22766.729,THS_T,Thousand tonnes
+Grèce,EL,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),31295.85,THS_T,Thousand tonnes
+Grèce,EL,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,266.391,THS_T,Thousand tonnes
+Grèce,EL,2021,Gaz naturel,G3000,Natural gas,252594.483,TJ_GCV,Terajoule (gross calorific value - GCV)
+Grèce,EL,2021,Pétrole brut,O4100_TOT,Crude oil,23407.106,THS_T,Thousand tonnes
+Grèce,EL,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),32669.25,THS_T,Thousand tonnes
+Grèce,EL,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,85.711,THS_T,Thousand tonnes
+Grèce,EL,2022,Gaz naturel,G3000,Natural gas,227252.638,TJ_GCV,Terajoule (gross calorific value - GCV)
+Grèce,EL,2022,Pétrole brut,O4100_TOT,Crude oil,21928.449,THS_T,Thousand tonnes
+Grèce,EL,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),32316.236,THS_T,Thousand tonnes
+Grèce,EL,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,49.406,THS_T,Thousand tonnes
+Grèce,EL,2023,Gaz naturel,G3000,Natural gas,190879.009,TJ_GCV,Terajoule (gross calorific value - GCV)
+Grèce,EL,2023,Pétrole brut,O4100_TOT,Crude oil,23331.442,THS_T,Thousand tonnes
+Grèce,EL,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),31526.388,THS_T,Thousand tonnes
+Hongrie,HU,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,1563.0,THS_T,Thousand tonnes
+Hongrie,HU,2019,Gaz naturel,G3000,Natural gas,453637.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Hongrie,HU,2019,Pétrole brut,O4100_TOT,Crude oil,6108.0,THS_T,Thousand tonnes
+Hongrie,HU,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),10342.0,THS_T,Thousand tonnes
+Hongrie,HU,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,1343.0,THS_T,Thousand tonnes
+Hongrie,HU,2020,Gaz naturel,G3000,Natural gas,308326.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Hongrie,HU,2020,Pétrole brut,O4100_TOT,Crude oil,6100.0,THS_T,Thousand tonnes
+Hongrie,HU,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),9475.0,THS_T,Thousand tonnes
+Hongrie,HU,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,1255.0,THS_T,Thousand tonnes
+Hongrie,HU,2021,Gaz naturel,G3000,Natural gas,290618.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Hongrie,HU,2021,Pétrole brut,O4100_TOT,Crude oil,6008.0,THS_T,Thousand tonnes
+Hongrie,HU,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),9764.0,THS_T,Thousand tonnes
+Hongrie,HU,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,935.0,THS_T,Thousand tonnes
+Hongrie,HU,2022,Gaz naturel,G3000,Natural gas,364379.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Hongrie,HU,2022,Pétrole brut,O4100_TOT,Crude oil,5992.0,THS_T,Thousand tonnes
+Hongrie,HU,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),9568.0,THS_T,Thousand tonnes
+Hongrie,HU,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,455.0,THS_T,Thousand tonnes
+Hongrie,HU,2023,Gaz naturel,G3000,Natural gas,323999.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Hongrie,HU,2023,Pétrole brut,O4100_TOT,Crude oil,6209.0,THS_T,Thousand tonnes
+Hongrie,HU,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),9695.0,THS_T,Thousand tonnes
+Irlande,IE,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,421.652,THS_T,Thousand tonnes
+Irlande,IE,2019,Gaz naturel,G3000,Natural gas,112418.229,TJ_GCV,Terajoule (gross calorific value - GCV)
+Irlande,IE,2019,Pétrole brut,O4100_TOT,Crude oil,2552.814,THS_T,Thousand tonnes
+Irlande,IE,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),8769.134,THS_T,Thousand tonnes
+Irlande,IE,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,425.278,THS_T,Thousand tonnes
+Irlande,IE,2020,Gaz naturel,G3000,Natural gas,135059.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Irlande,IE,2020,Pétrole brut,O4100_TOT,Crude oil,2903.736,THS_T,Thousand tonnes
+Irlande,IE,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),7932.917,THS_T,Thousand tonnes
+Irlande,IE,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,1587.7,THS_T,Thousand tonnes
+Irlande,IE,2021,Gaz naturel,G3000,Natural gas,144855.672,TJ_GCV,Terajoule (gross calorific value - GCV)
+Irlande,IE,2021,Pétrole brut,O4100_TOT,Crude oil,2967.206,THS_T,Thousand tonnes
+Irlande,IE,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),8243.555,THS_T,Thousand tonnes
+Irlande,IE,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,1493.351,THS_T,Thousand tonnes
+Irlande,IE,2022,Gaz naturel,G3000,Natural gas,153374.025,TJ_GCV,Terajoule (gross calorific value - GCV)
+Irlande,IE,2022,Pétrole brut,O4100_TOT,Crude oil,3058.633,THS_T,Thousand tonnes
+Irlande,IE,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),8563.84,THS_T,Thousand tonnes
+Irlande,IE,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,635.332,THS_T,Thousand tonnes
+Irlande,IE,2023,Gaz naturel,G3000,Natural gas,149163.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Irlande,IE,2023,Pétrole brut,O4100_TOT,Crude oil,2701.695,THS_T,Thousand tonnes
+Irlande,IE,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),8169.856,THS_T,Thousand tonnes
+Islande,IS,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,160.24,THS_T,Thousand tonnes
+Islande,IS,2019,Gaz naturel,G3000,Natural gas,0.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Islande,IS,2019,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Islande,IS,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),880.878,THS_T,Thousand tonnes
+Islande,IS,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,140.128,THS_T,Thousand tonnes
+Islande,IS,2020,Gaz naturel,G3000,Natural gas,0.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Islande,IS,2020,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Islande,IS,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),602.75,THS_T,Thousand tonnes
+Islande,IS,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,193.869,THS_T,Thousand tonnes
+Islande,IS,2021,Gaz naturel,G3000,Natural gas,0.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Islande,IS,2021,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Islande,IS,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),742.857,THS_T,Thousand tonnes
+Islande,IS,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,191.93,THS_T,Thousand tonnes
+Islande,IS,2022,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Islande,IS,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),935.008,THS_T,Thousand tonnes
+Islande,IS,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,137.866,THS_T,Thousand tonnes
+Islande,IS,2023,Gaz naturel,G3000,Natural gas,0.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Islande,IS,2023,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Islande,IS,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),960.937,THS_T,Thousand tonnes
+Italie,IT,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,10844.556,THS_T,Thousand tonnes
+Italie,IT,2019,Gaz naturel,G3000,Natural gas,2707586.218,TJ_GCV,Terajoule (gross calorific value - GCV)
+Italie,IT,2019,Pétrole brut,O4100_TOT,Crude oil,63139.508,THS_T,Thousand tonnes
+Italie,IT,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),80405.272,THS_T,Thousand tonnes
+Italie,IT,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,7607.659,THS_T,Thousand tonnes
+Italie,IT,2020,Gaz naturel,G3000,Natural gas,2529566.823,TJ_GCV,Terajoule (gross calorific value - GCV)
+Italie,IT,2020,Pétrole brut,O4100_TOT,Crude oil,50363.074,THS_T,Thousand tonnes
+Italie,IT,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),65419.015,THS_T,Thousand tonnes
+Italie,IT,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,8548.389,THS_T,Thousand tonnes
+Italie,IT,2021,Gaz naturel,G3000,Natural gas,2781129.655,TJ_GCV,Terajoule (gross calorific value - GCV)
+Italie,IT,2021,Pétrole brut,O4100_TOT,Crude oil,57022.676,THS_T,Thousand tonnes
+Italie,IT,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),71695.319,THS_T,Thousand tonnes
+Italie,IT,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,12125.89,THS_T,Thousand tonnes
+Italie,IT,2022,Gaz naturel,G3000,Natural gas,2765730.74,TJ_GCV,Terajoule (gross calorific value - GCV)
+Italie,IT,2022,Pétrole brut,O4100_TOT,Crude oil,62515.259,THS_T,Thousand tonnes
+Italie,IT,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),77958.979,THS_T,Thousand tonnes
+Italie,IT,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,7398.574,THS_T,Thousand tonnes
+Italie,IT,2023,Gaz naturel,G3000,Natural gas,2355483.351,TJ_GCV,Terajoule (gross calorific value - GCV)
+Italie,IT,2023,Pétrole brut,O4100_TOT,Crude oil,61244.139,THS_T,Thousand tonnes
+Italie,IT,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),76321.553,THS_T,Thousand tonnes
+Lettonie,LV,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,79.463,THS_T,Thousand tonnes
+Lettonie,LV,2019,Gaz naturel,G3000,Natural gas,51343.214,TJ_GCV,Terajoule (gross calorific value - GCV)
+Lettonie,LV,2019,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Lettonie,LV,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),2285.69,THS_T,Thousand tonnes
+Lettonie,LV,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,39.767,THS_T,Thousand tonnes
+Lettonie,LV,2020,Gaz naturel,G3000,Natural gas,42387.034,TJ_GCV,Terajoule (gross calorific value - GCV)
+Lettonie,LV,2020,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Lettonie,LV,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),1978.415,THS_T,Thousand tonnes
+Lettonie,LV,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,36.7,THS_T,Thousand tonnes
+Lettonie,LV,2021,Gaz naturel,G3000,Natural gas,44843.311,TJ_GCV,Terajoule (gross calorific value - GCV)
+Lettonie,LV,2021,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Lettonie,LV,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),1902.567,THS_T,Thousand tonnes
+Lettonie,LV,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,45.229,THS_T,Thousand tonnes
+Lettonie,LV,2022,Gaz naturel,G3000,Natural gas,32116.404,TJ_GCV,Terajoule (gross calorific value - GCV)
+Lettonie,LV,2022,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Lettonie,LV,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),2202.469,THS_T,Thousand tonnes
+Lettonie,LV,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,17.146,THS_T,Thousand tonnes
+Lettonie,LV,2023,Gaz naturel,G3000,Natural gas,31965.125,TJ_GCV,Terajoule (gross calorific value - GCV)
+Lettonie,LV,2023,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Lettonie,LV,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),2153.065,THS_T,Thousand tonnes
+Lituanie,LT,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,302.3,THS_T,Thousand tonnes
+Lituanie,LT,2019,Gaz naturel,G3000,Natural gas,106877.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Lituanie,LT,2019,Pétrole brut,O4100_TOT,Crude oil,9629.9,THS_T,Thousand tonnes
+Lituanie,LT,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),10763.7,THS_T,Thousand tonnes
+Lituanie,LT,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,194.1,THS_T,Thousand tonnes
+Lituanie,LT,2020,Gaz naturel,G3000,Natural gas,110833.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Lituanie,LT,2020,Pétrole brut,O4100_TOT,Crude oil,7839.8,THS_T,Thousand tonnes
+Lituanie,LT,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),8928.8,THS_T,Thousand tonnes
+Lituanie,LT,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,242.3,THS_T,Thousand tonnes
+Lituanie,LT,2021,Gaz naturel,G3000,Natural gas,93171.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Lituanie,LT,2021,Pétrole brut,O4100_TOT,Crude oil,8008.3,THS_T,Thousand tonnes
+Lituanie,LT,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),9222.0,THS_T,Thousand tonnes
+Lituanie,LT,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,336.8,THS_T,Thousand tonnes
+Lituanie,LT,2022,Gaz naturel,G3000,Natural gas,137723.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Lituanie,LT,2022,Pétrole brut,O4100_TOT,Crude oil,8204.9,THS_T,Thousand tonnes
+Lituanie,LT,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),9556.3,THS_T,Thousand tonnes
+Lituanie,LT,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,148.9,THS_T,Thousand tonnes
+Lituanie,LT,2023,Gaz naturel,G3000,Natural gas,129155.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Lituanie,LT,2023,Pétrole brut,O4100_TOT,Crude oil,9092.7,THS_T,Thousand tonnes
+Lituanie,LT,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),10078.3,THS_T,Thousand tonnes
+Luxembourg,LU,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,73.365,THS_T,Thousand tonnes
+Luxembourg,LU,2019,Gaz naturel,G3000,Natural gas,31822.352,TJ_GCV,Terajoule (gross calorific value - GCV)
+Luxembourg,LU,2019,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Luxembourg,LU,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),2914.012,THS_T,Thousand tonnes
+Luxembourg,LU,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,73.303,THS_T,Thousand tonnes
+Luxembourg,LU,2020,Gaz naturel,G3000,Natural gas,28901.447,TJ_GCV,Terajoule (gross calorific value - GCV)
+Luxembourg,LU,2020,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Luxembourg,LU,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),2353.08,THS_T,Thousand tonnes
+Luxembourg,LU,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,59.955,THS_T,Thousand tonnes
+Luxembourg,LU,2021,Gaz naturel,G3000,Natural gas,31159.23,TJ_GCV,Terajoule (gross calorific value - GCV)
+Luxembourg,LU,2021,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Luxembourg,LU,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),2521.697,THS_T,Thousand tonnes
+Luxembourg,LU,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,68.981,THS_T,Thousand tonnes
+Luxembourg,LU,2022,Gaz naturel,G3000,Natural gas,24469.586,TJ_GCV,Terajoule (gross calorific value - GCV)
+Luxembourg,LU,2022,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Luxembourg,LU,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),2290.917,THS_T,Thousand tonnes
+Luxembourg,LU,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,39.029,THS_T,Thousand tonnes
+Luxembourg,LU,2023,Gaz naturel,G3000,Natural gas,22929.601,TJ_GCV,Terajoule (gross calorific value - GCV)
+Luxembourg,LU,2023,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Luxembourg,LU,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),2202.595,THS_T,Thousand tonnes
+Malte,MT,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,0.0,THS_T,Thousand tonnes
+Malte,MT,2019,Gaz naturel,G3000,Natural gas,14760.775,TJ_GCV,Terajoule (gross calorific value - GCV)
+Malte,MT,2019,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Malte,MT,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),3134.905,THS_T,Thousand tonnes
+Malte,MT,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,0.0,THS_T,Thousand tonnes
+Malte,MT,2020,Gaz naturel,G3000,Natural gas,14236.959,TJ_GCV,Terajoule (gross calorific value - GCV)
+Malte,MT,2020,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Malte,MT,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),2775.58,THS_T,Thousand tonnes
+Malte,MT,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,0.0,THS_T,Thousand tonnes
+Malte,MT,2021,Gaz naturel,G3000,Natural gas,15361.885,TJ_GCV,Terajoule (gross calorific value - GCV)
+Malte,MT,2021,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Malte,MT,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),2425.863,THS_T,Thousand tonnes
+Malte,MT,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,0.0,THS_T,Thousand tonnes
+Malte,MT,2022,Gaz naturel,G3000,Natural gas,15039.839,TJ_GCV,Terajoule (gross calorific value - GCV)
+Malte,MT,2022,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Malte,MT,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),2708.829,THS_T,Thousand tonnes
+Malte,MT,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,0.0,THS_T,Thousand tonnes
+Malte,MT,2023,Gaz naturel,G3000,Natural gas,14729.16,TJ_GCV,Terajoule (gross calorific value - GCV)
+Malte,MT,2023,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Malte,MT,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),2881.558,THS_T,Thousand tonnes
+Norvège,NO,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,1153.499,THS_T,Thousand tonnes
+Norvège,NO,2019,Gaz naturel,G3000,Natural gas,1057.288,TJ_GCV,Terajoule (gross calorific value - GCV)
+Norvège,NO,2019,Pétrole brut,O4100_TOT,Crude oil,3489.892,THS_T,Thousand tonnes
+Norvège,NO,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),9410.39,THS_T,Thousand tonnes
+Norvège,NO,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,1172.414,THS_T,Thousand tonnes
+Norvège,NO,2020,Gaz naturel,G3000,Natural gas,1325.902,TJ_GCV,Terajoule (gross calorific value - GCV)
+Norvège,NO,2020,Pétrole brut,O4100_TOT,Crude oil,3235.819,THS_T,Thousand tonnes
+Norvège,NO,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),9147.525,THS_T,Thousand tonnes
+Norvège,NO,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,1204.765,THS_T,Thousand tonnes
+Norvège,NO,2021,Gaz naturel,G3000,Natural gas,6294.653,TJ_GCV,Terajoule (gross calorific value - GCV)
+Norvège,NO,2021,Pétrole brut,O4100_TOT,Crude oil,2470.409,THS_T,Thousand tonnes
+Norvège,NO,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),8594.61,THS_T,Thousand tonnes
+Norvège,NO,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,1203.565,THS_T,Thousand tonnes
+Norvège,NO,2022,Gaz naturel,G3000,Natural gas,2682.261,TJ_GCV,Terajoule (gross calorific value - GCV)
+Norvège,NO,2022,Pétrole brut,O4100_TOT,Crude oil,819.347,THS_T,Thousand tonnes
+Norvège,NO,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),8939.046,THS_T,Thousand tonnes
+Norvège,NO,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,1042.317,THS_T,Thousand tonnes
+Norvège,NO,2023,Gaz naturel,G3000,Natural gas,4057.845,TJ_GCV,Terajoule (gross calorific value - GCV)
+Norvège,NO,2023,Pétrole brut,O4100_TOT,Crude oil,1765.365,THS_T,Thousand tonnes
+Norvège,NO,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),9173.885,THS_T,Thousand tonnes
+Pays-Bas,NL,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,10474.48,THS_T,Thousand tonnes
+Pays-Bas,NL,2019,Gaz naturel,G3000,Natural gas,1187973.322,TJ_GCV,Terajoule (gross calorific value - GCV)
+Pays-Bas,NL,2019,Pétrole brut,O4100_TOT,Crude oil,57554.789,THS_T,Thousand tonnes
+Pays-Bas,NL,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),147088.922,THS_T,Thousand tonnes
+Pays-Bas,NL,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,6101.472,THS_T,Thousand tonnes
+Pays-Bas,NL,2020,Gaz naturel,G3000,Natural gas,1206731.504,TJ_GCV,Terajoule (gross calorific value - GCV)
+Pays-Bas,NL,2020,Pétrole brut,O4100_TOT,Crude oil,49450.245,THS_T,Thousand tonnes
+Pays-Bas,NL,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),129872.983,THS_T,Thousand tonnes
+Pays-Bas,NL,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,8814.888,THS_T,Thousand tonnes
+Pays-Bas,NL,2021,Gaz naturel,G3000,Natural gas,1030255.137,TJ_GCV,Terajoule (gross calorific value - GCV)
+Pays-Bas,NL,2021,Pétrole brut,O4100_TOT,Crude oil,52498.647,THS_T,Thousand tonnes
+Pays-Bas,NL,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),141233.589,THS_T,Thousand tonnes
+Pays-Bas,NL,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,9111.262,THS_T,Thousand tonnes
+Pays-Bas,NL,2022,Gaz naturel,G3000,Natural gas,1293105.835,TJ_GCV,Terajoule (gross calorific value - GCV)
+Pays-Bas,NL,2022,Pétrole brut,O4100_TOT,Crude oil,53194.712,THS_T,Thousand tonnes
+Pays-Bas,NL,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),147531.459,THS_T,Thousand tonnes
+Pays-Bas,NL,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,6538.231,THS_T,Thousand tonnes
+Pays-Bas,NL,2023,Gaz naturel,G3000,Natural gas,1344603.315,TJ_GCV,Terajoule (gross calorific value - GCV)
+Pays-Bas,NL,2023,Pétrole brut,O4100_TOT,Crude oil,53744.801,THS_T,Thousand tonnes
+Pays-Bas,NL,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),140429.386,THS_T,Thousand tonnes
+Pologne,PL,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,17165.953,THS_T,Thousand tonnes
+Pologne,PL,2019,Gaz naturel,G3000,Natural gas,672988.156,TJ_GCV,Terajoule (gross calorific value - GCV)
+Pologne,PL,2019,Pétrole brut,O4100_TOT,Crude oil,26622.005,THS_T,Thousand tonnes
+Pologne,PL,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),35422.643,THS_T,Thousand tonnes
+Pologne,PL,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,13129.897,THS_T,Thousand tonnes
+Pologne,PL,2020,Gaz naturel,G3000,Natural gas,673200.874,TJ_GCV,Terajoule (gross calorific value - GCV)
+Pologne,PL,2020,Pétrole brut,O4100_TOT,Crude oil,24905.809,THS_T,Thousand tonnes
+Pologne,PL,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),32838.519,THS_T,Thousand tonnes
+Pologne,PL,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,12745.818,THS_T,Thousand tonnes
+Pologne,PL,2021,Gaz naturel,G3000,Natural gas,713103.271,TJ_GCV,Terajoule (gross calorific value - GCV)
+Pologne,PL,2021,Pétrole brut,O4100_TOT,Crude oil,23619.551,THS_T,Thousand tonnes
+Pologne,PL,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),33836.427,THS_T,Thousand tonnes
+Pologne,PL,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,20510.756,THS_T,Thousand tonnes
+Pologne,PL,2022,Gaz naturel,G3000,Natural gas,591899.527,TJ_GCV,Terajoule (gross calorific value - GCV)
+Pologne,PL,2022,Pétrole brut,O4100_TOT,Crude oil,26290.806,THS_T,Thousand tonnes
+Pologne,PL,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),37222.939,THS_T,Thousand tonnes
+Pologne,PL,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,17305.672,THS_T,Thousand tonnes
+Pologne,PL,2023,Gaz naturel,G3000,Natural gas,623619.648,TJ_GCV,Terajoule (gross calorific value - GCV)
+Pologne,PL,2023,Pétrole brut,O4100_TOT,Crude oil,24493.09,THS_T,Thousand tonnes
+Pologne,PL,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),37285.436,THS_T,Thousand tonnes
+Portugal,PT,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,2584.372,THS_T,Thousand tonnes
+Portugal,PT,2019,Gaz naturel,G3000,Natural gas,245614.868,TJ_GCV,Terajoule (gross calorific value - GCV)
+Portugal,PT,2019,Pétrole brut,O4100_TOT,Crude oil,11165.476,THS_T,Thousand tonnes
+Portugal,PT,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),16095.912,THS_T,Thousand tonnes
+Portugal,PT,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,15.467,THS_T,Thousand tonnes
+Portugal,PT,2020,Gaz naturel,G3000,Natural gas,239447.544,TJ_GCV,Terajoule (gross calorific value - GCV)
+Portugal,PT,2020,Pétrole brut,O4100_TOT,Crude oil,10715.795,THS_T,Thousand tonnes
+Portugal,PT,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),14373.807,THS_T,Thousand tonnes
+Portugal,PT,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,12.151,THS_T,Thousand tonnes
+Portugal,PT,2021,Gaz naturel,G3000,Natural gas,230624.003,TJ_GCV,Terajoule (gross calorific value - GCV)
+Portugal,PT,2021,Pétrole brut,O4100_TOT,Crude oil,9365.934,THS_T,Thousand tonnes
+Portugal,PT,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),14330.111,THS_T,Thousand tonnes
+Portugal,PT,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,10.004,THS_T,Thousand tonnes
+Portugal,PT,2022,Gaz naturel,G3000,Natural gas,232259.86,TJ_GCV,Terajoule (gross calorific value - GCV)
+Portugal,PT,2022,Pétrole brut,O4100_TOT,Crude oil,10064.341,THS_T,Thousand tonnes
+Portugal,PT,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),15059.931,THS_T,Thousand tonnes
+Portugal,PT,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,5.868,THS_T,Thousand tonnes
+Portugal,PT,2023,Gaz naturel,G3000,Natural gas,172724.837,TJ_GCV,Terajoule (gross calorific value - GCV)
+Portugal,PT,2023,Pétrole brut,O4100_TOT,Crude oil,9421.822,THS_T,Thousand tonnes
+Portugal,PT,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),14407.758,THS_T,Thousand tonnes
+Roumanie,RO,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,1837.099,THS_T,Thousand tonnes
+Roumanie,RO,2019,Gaz naturel,G3000,Natural gas,99372.6,TJ_GCV,Terajoule (gross calorific value - GCV)
+Roumanie,RO,2019,Pétrole brut,O4100_TOT,Crude oil,8664.876,THS_T,Thousand tonnes
+Roumanie,RO,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),12205.905,THS_T,Thousand tonnes
+Roumanie,RO,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,1289.266,THS_T,Thousand tonnes
+Roumanie,RO,2020,Gaz naturel,G3000,Natural gas,79479.534,TJ_GCV,Terajoule (gross calorific value - GCV)
+Roumanie,RO,2020,Pétrole brut,O4100_TOT,Crude oil,7073.441,THS_T,Thousand tonnes
+Roumanie,RO,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),10859.059,THS_T,Thousand tonnes
+Roumanie,RO,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,1611.903,THS_T,Thousand tonnes
+Roumanie,RO,2021,Gaz naturel,G3000,Natural gas,132121.922,TJ_GCV,Terajoule (gross calorific value - GCV)
+Roumanie,RO,2021,Pétrole brut,O4100_TOT,Crude oil,6823.41,THS_T,Thousand tonnes
+Roumanie,RO,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),11342.615,THS_T,Thousand tonnes
+Roumanie,RO,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,1247.281,THS_T,Thousand tonnes
+Roumanie,RO,2022,Gaz naturel,G3000,Natural gas,105671.728,TJ_GCV,Terajoule (gross calorific value - GCV)
+Roumanie,RO,2022,Pétrole brut,O4100_TOT,Crude oil,8704.672,THS_T,Thousand tonnes
+Roumanie,RO,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),12656.622,THS_T,Thousand tonnes
+Roumanie,RO,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,641.399,THS_T,Thousand tonnes
+Roumanie,RO,2023,Gaz naturel,G3000,Natural gas,99079.178,TJ_GCV,Terajoule (gross calorific value - GCV)
+Roumanie,RO,2023,Pétrole brut,O4100_TOT,Crude oil,7371.768,THS_T,Thousand tonnes
+Roumanie,RO,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),12202.24,THS_T,Thousand tonnes
+Royaume-Uni,UK,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,7404.0,THS_T,Thousand tonnes
+Royaume-Uni,UK,2019,Gaz naturel,G3000,Natural gas,1864485.126,TJ_GCV,Terajoule (gross calorific value - GCV)
+Royaume-Uni,UK,2019,Pétrole brut,O4100_TOT,Crude oil,44563.508,THS_T,Thousand tonnes
+Royaume-Uni,UK,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),85632.096,THS_T,Thousand tonnes
+Slovaquie,SK,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,4133.0,THS_T,Thousand tonnes
+Slovaquie,SK,2019,Gaz naturel,G3000,Natural gas,259722.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Slovaquie,SK,2019,Pétrole brut,O4100_TOT,Crude oil,5143.0,THS_T,Thousand tonnes
+Slovaquie,SK,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),7004.0,THS_T,Thousand tonnes
+Slovaquie,SK,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,3222.0,THS_T,Thousand tonnes
+Slovaquie,SK,2020,Gaz naturel,G3000,Natural gas,167459.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Slovaquie,SK,2020,Pétrole brut,O4100_TOT,Crude oil,5655.0,THS_T,Thousand tonnes
+Slovaquie,SK,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),7287.0,THS_T,Thousand tonnes
+Slovaquie,SK,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,3786.0,THS_T,Thousand tonnes
+Slovaquie,SK,2021,Gaz naturel,G3000,Natural gas,198621.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Slovaquie,SK,2021,Pétrole brut,O4100_TOT,Crude oil,5467.0,THS_T,Thousand tonnes
+Slovaquie,SK,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),7141.0,THS_T,Thousand tonnes
+Slovaquie,SK,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,3698.0,THS_T,Thousand tonnes
+Slovaquie,SK,2022,Gaz naturel,G3000,Natural gas,242167.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Slovaquie,SK,2022,Pétrole brut,O4100_TOT,Crude oil,5459.0,THS_T,Thousand tonnes
+Slovaquie,SK,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),7173.0,THS_T,Thousand tonnes
+Slovaquie,SK,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,3423.0,THS_T,Thousand tonnes
+Slovaquie,SK,2023,Gaz naturel,G3000,Natural gas,177443.0,TJ_GCV,Terajoule (gross calorific value - GCV)
+Slovaquie,SK,2023,Pétrole brut,O4100_TOT,Crude oil,5418.0,THS_T,Thousand tonnes
+Slovaquie,SK,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),7632.0,THS_T,Thousand tonnes
+Slovénie,SI,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,459.297,THS_T,Thousand tonnes
+Slovénie,SI,2019,Gaz naturel,G3000,Natural gas,34026.579,TJ_GCV,Terajoule (gross calorific value - GCV)
+Slovénie,SI,2019,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Slovénie,SI,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),4875.083,THS_T,Thousand tonnes
+Slovénie,SI,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,387.617,THS_T,Thousand tonnes
+Slovénie,SI,2020,Gaz naturel,G3000,Natural gas,34003.863,TJ_GCV,Terajoule (gross calorific value - GCV)
+Slovénie,SI,2020,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Slovénie,SI,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),4014.539,THS_T,Thousand tonnes
+Slovénie,SI,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,205.022,THS_T,Thousand tonnes
+Slovénie,SI,2021,Gaz naturel,G3000,Natural gas,35859.1,TJ_GCV,Terajoule (gross calorific value - GCV)
+Slovénie,SI,2021,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Slovénie,SI,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),3849.21,THS_T,Thousand tonnes
+Slovénie,SI,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,466.481,THS_T,Thousand tonnes
+Slovénie,SI,2022,Gaz naturel,G3000,Natural gas,31626.129,TJ_GCV,Terajoule (gross calorific value - GCV)
+Slovénie,SI,2022,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Slovénie,SI,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),4610.0,THS_T,Thousand tonnes
+Slovénie,SI,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,451.546,THS_T,Thousand tonnes
+Slovénie,SI,2023,Gaz naturel,G3000,Natural gas,30497.841,TJ_GCV,Terajoule (gross calorific value - GCV)
+Slovénie,SI,2023,Pétrole brut,O4100_TOT,Crude oil,0.0,THS_T,Thousand tonnes
+Slovénie,SI,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),4485.883,THS_T,Thousand tonnes
+Suède,SE,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,2824.0,THS_T,Thousand tonnes
+Suède,SE,2019,Gaz naturel,G3000,Natural gas,45694.733,TJ_GCV,Terajoule (gross calorific value - GCV)
+Suède,SE,2019,Pétrole brut,O4100_TOT,Crude oil,16351.0,THS_T,Thousand tonnes
+Suède,SE,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),24815.624,THS_T,Thousand tonnes
+Suède,SE,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,2158.0,THS_T,Thousand tonnes
+Suède,SE,2020,Gaz naturel,G3000,Natural gas,60377.932,TJ_GCV,Terajoule (gross calorific value - GCV)
+Suède,SE,2020,Pétrole brut,O4100_TOT,Crude oil,17675.763,THS_T,Thousand tonnes
+Suède,SE,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),26107.979,THS_T,Thousand tonnes
+Suède,SE,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,2281.0,THS_T,Thousand tonnes
+Suède,SE,2021,Gaz naturel,G3000,Natural gas,49903.647,TJ_GCV,Terajoule (gross calorific value - GCV)
+Suède,SE,2021,Pétrole brut,O4100_TOT,Crude oil,17952.524,THS_T,Thousand tonnes
+Suède,SE,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),25243.763,THS_T,Thousand tonnes
+Suède,SE,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,2277.0,THS_T,Thousand tonnes
+Suède,SE,2022,Gaz naturel,G3000,Natural gas,30425.507,TJ_GCV,Terajoule (gross calorific value - GCV)
+Suède,SE,2022,Pétrole brut,O4100_TOT,Crude oil,18846.611,THS_T,Thousand tonnes
+Suède,SE,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),26719.845,THS_T,Thousand tonnes
+Suède,SE,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,2038.0,THS_T,Thousand tonnes
+Suède,SE,2023,Gaz naturel,G3000,Natural gas,36267.929,TJ_GCV,Terajoule (gross calorific value - GCV)
+Suède,SE,2023,Pétrole brut,O4100_TOT,Crude oil,17329.288,THS_T,Thousand tonnes
+Suède,SE,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),25708.523,THS_T,Thousand tonnes
+Tchéquie,CZ,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,4449.049,THS_T,Thousand tonnes
+Tchéquie,CZ,2019,Gaz naturel,G3000,Natural gas,365476.39,TJ_GCV,Terajoule (gross calorific value - GCV)
+Tchéquie,CZ,2019,Pétrole brut,O4100_TOT,Crude oil,7738.0,THS_T,Thousand tonnes
+Tchéquie,CZ,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),11665.0,THS_T,Thousand tonnes
+Tchéquie,CZ,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,4318.885,THS_T,Thousand tonnes
+Tchéquie,CZ,2020,Gaz naturel,G3000,Natural gas,291223.427,TJ_GCV,Terajoule (gross calorific value - GCV)
+Tchéquie,CZ,2020,Pétrole brut,O4100_TOT,Crude oil,6174.0,THS_T,Thousand tonnes
+Tchéquie,CZ,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),10335.0,THS_T,Thousand tonnes
+Tchéquie,CZ,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,5443.2,THS_T,Thousand tonnes
+Tchéquie,CZ,2021,Gaz naturel,G3000,Natural gas,334153.238,TJ_GCV,Terajoule (gross calorific value - GCV)
+Tchéquie,CZ,2021,Pétrole brut,O4100_TOT,Crude oil,6841.0,THS_T,Thousand tonnes
+Tchéquie,CZ,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),11176.0,THS_T,Thousand tonnes
+Tchéquie,CZ,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,5379.615,THS_T,Thousand tonnes
+Tchéquie,CZ,2022,Gaz naturel,G3000,Natural gas,334473.513,TJ_GCV,Terajoule (gross calorific value - GCV)
+Tchéquie,CZ,2022,Pétrole brut,O4100_TOT,Crude oil,7425.0,THS_T,Thousand tonnes
+Tchéquie,CZ,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),11341.0,THS_T,Thousand tonnes
+Tchéquie,CZ,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,4404.284,THS_T,Thousand tonnes
+Tchéquie,CZ,2023,Gaz naturel,G3000,Natural gas,268039.374,TJ_GCV,Terajoule (gross calorific value - GCV)
+Tchéquie,CZ,2023,Pétrole brut,O4100_TOT,Crude oil,7406.0,THS_T,Thousand tonnes
+Tchéquie,CZ,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),11413.0,THS_T,Thousand tonnes
+Union européenne (27 pays),EU27_2020,2019,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,137029.826,THS_T,Thousand tonnes
+Union européenne (27 pays),EU27_2020,2019,Gaz naturel,G3000,Natural gas,15513400.644,TJ_GCV,Terajoule (gross calorific value - GCV)
+Union européenne (27 pays),EU27_2020,2019,Pétrole brut,O4100_TOT,Crude oil,507158.926,THS_T,Thousand tonnes
+Union européenne (27 pays),EU27_2020,2019,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),845808.14,THS_T,Thousand tonnes
+Union européenne (27 pays),EU27_2020,2020,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,96962.455,THS_T,Thousand tonnes
+Union européenne (27 pays),EU27_2020,2020,Gaz naturel,G3000,Natural gas,13931306.07,TJ_GCV,Terajoule (gross calorific value - GCV)
+Union européenne (27 pays),EU27_2020,2020,Pétrole brut,O4100_TOT,Crude oil,439359.192,THS_T,Thousand tonnes
+Union européenne (27 pays),EU27_2020,2020,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),743736.523,THS_T,Thousand tonnes
+Union européenne (27 pays),EU27_2020,2021,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,115396.272,THS_T,Thousand tonnes
+Union européenne (27 pays),EU27_2020,2021,Gaz naturel,G3000,Natural gas,14440003.196,TJ_GCV,Terajoule (gross calorific value - GCV)
+Union européenne (27 pays),EU27_2020,2021,Pétrole brut,O4100_TOT,Crude oil,446453.508,THS_T,Thousand tonnes
+Union européenne (27 pays),EU27_2020,2021,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),769532.434,THS_T,Thousand tonnes
+Union européenne (27 pays),EU27_2020,2022,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,138151.096,THS_T,Thousand tonnes
+Union européenne (27 pays),EU27_2020,2022,Gaz naturel,G3000,Natural gas,15604811.554,TJ_GCV,Terajoule (gross calorific value - GCV)
+Union européenne (27 pays),EU27_2020,2022,Pétrole brut,O4100_TOT,Crude oil,479642.139,THS_T,Thousand tonnes
+Union européenne (27 pays),EU27_2020,2022,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),807687.048,THS_T,Thousand tonnes
+Union européenne (27 pays),EU27_2020,2023,Combustibles fossiles solides (charbon),C0000X0350-0370,Solid fossil fuels,101894.241,THS_T,Thousand tonnes
+Union européenne (27 pays),EU27_2020,2023,Gaz naturel,G3000,Natural gas,13914942.989,TJ_GCV,Terajoule (gross calorific value - GCV)
+Union européenne (27 pays),EU27_2020,2023,Pétrole brut,O4100_TOT,Crude oil,471568.343,THS_T,Thousand tonnes
+Union européenne (27 pays),EU27_2020,2023,Pétrole et produits pétroliers,O4000XBIO,Oil and petroleum products (excluding biofuel portion),784221.099,THS_T,Thousand tonnes
