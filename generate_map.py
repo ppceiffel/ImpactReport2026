@@ -10,7 +10,7 @@ import json, requests, urllib3, folium, branca.colormap as cm
 urllib3.disable_warnings()
 
 BASE_URL = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data"
-YEAR = "2023"
+YEAR = "2024"
 
 CONV_KTOE = {
     "C0000X0350-0370": 0.474,
@@ -93,15 +93,26 @@ PARTNER_META = {
     "Tanzania":("TZ",-6.0,35.0),"Liberia":("LR",6.4,-9.4),
     "Tunisia":("TN",34.0,9.0),"Morocco":("MA",32.0,-6.0),
 }
-PARTNER_EXCLUDE = {
-    "TOTAL","NSP","EU27_2020","EUR_OTH","EX_SU_OTH","AME_OTH",
-    "AFR_OTH","ASI_OTH","ASI_NME_OTH","EA21","EA20","EA19",
+# Codes qui représentent des totaux/sous-totaux — exclus pour éviter le double-comptage
+PARTNER_TOTALS = {
+    "TOTAL","EU27_2020","EA21","EA20","EA19","EXTRA_EU27_2020",
 }
 # Codes Eurostat des pays UE27 — exclus des partenaires (on ne veut que hors UE)
 PARTNER_EU27_CODES = {
     "AT","BE","BG","CY","CZ","DE","DK","EE","EL","ES","FI","FR",
     "HR","HU","IE","IT","LT","LU","LV","MT","NL","PL","PT","RO",
     "SE","SI","SK",
+}
+# Codes agrégés Eurostat (certains pays ne rapportent que des agrégats)
+# → affichés avec un nom clair + drapeau représentatif + position indicative
+PARTNER_AGGREGATES = {
+    "EUR_OTH":    ("Autres pays européens",  "NO", 60.0, 10.0),
+    "EX_SU_OTH": ("Ex-URSS (Russie…)",       "RU", 55.0, 60.0),
+    "AME_OTH":   ("Amériques (GNL)",          "US", 38.0,-97.0),
+    "AFR_OTH":   ("Afrique",                  "NG",  9.0,  8.0),
+    "ASI_OTH":   ("Asie-Pacifique",           "AU",-25.0,133.0),
+    "ASI_NME_OTH":("Moyen-Orient (GNL)",      "SA", 24.0, 45.0),
+    "NSP":       ("Non spécifié",             "UN",  0.0,  0.0),
 }
 
 # Centroïdes approximatifs des capitales EU (iso3 -> [lat, lon])
@@ -186,7 +197,8 @@ def fetch_import_total(dataset, siec, unit):
             pc = partner_inv.get(indices[dims.index("partner")], "?")
             tc = time_inv.get(indices[dims.index("time")], "?")
             if gc not in EU_COUNTRIES or tc != YEAR: continue
-            if pc in PARTNER_EXCLUDE or pc in PARTNER_EU27_CODES: continue
+            # Exclure: sous-totaux (double-comptage) + pays UE individuels (intra-UE)
+            if pc in PARTNER_TOTALS or pc in PARTNER_EU27_CODES: continue
             totals[gc] = round(totals.get(gc, 0) + val * conv, 1)
         return totals
     return result
@@ -222,20 +234,28 @@ def fetch_import_partners(dataset, siec, unit):
         pc = partner_inv.get(indices[dims.index("partner")], "?")
         tc = time_inv.get(indices[dims.index("time")], "?")
         if gc not in EU_COUNTRIES or tc != YEAR: continue
-        if pc in PARTNER_EXCLUDE or pc in PARTNER_EU27_CODES: continue
-        pname = partner_lbl.get(pc, pc)
-        raw.setdefault(gc, {})[pname] = round(val * conv, 1)
+        # Exclure sous-totaux (double-comptage) et pays UE individuels
+        if pc in PARTNER_TOTALS or pc in PARTNER_EU27_CODES: continue
+        # Pour les codes agrégés, utiliser le nom display court
+        if pc in PARTNER_AGGREGATES:
+            disp_name = PARTNER_AGGREGATES[pc][0]
+        else:
+            disp_name = partner_lbl.get(pc, pc)
+        raw.setdefault(gc, {})[(pc, disp_name)] = round(val * conv, 1)
     result = {}
     for gc, pmap in raw.items():
         top5 = sorted(pmap.items(), key=lambda x: -x[1])[:5]
         entries = []
-        for pname, ktoe in top5:
-            meta = PARTNER_META.get(pname)
-            if meta:
-                iso2, lat, lon = meta
-                entries.append({"pays": pname, "ktoe": ktoe, "iso2": iso2, "lat": lat, "lon": lon})
+        for (pc, pname), ktoe in top5:
+            if pc in PARTNER_AGGREGATES:
+                _, iso2, lat, lon = PARTNER_AGGREGATES[pc]
             else:
-                entries.append({"pays": pname, "ktoe": ktoe, "iso2": "UN", "lat": 0, "lon": 0})
+                meta = PARTNER_META.get(pname)
+                if meta:
+                    iso2, lat, lon = meta
+                else:
+                    iso2, lat, lon = "UN", 0.0, 0.0
+            entries.append({"pays": pname, "ktoe": ktoe, "iso2": iso2, "lat": lat, "lon": lon})
         result[gc] = entries
     return result
 
@@ -314,7 +334,7 @@ def make_map(data, out_path):
     colormap = cm.LinearColormap(
         colors=["#ffffcc","#fed976","#fd8d3c","#e31a1c","#800026"],
         vmin=0, vmax=min(max_dep, 100),
-        caption="Importations fossiles / consommation totale (%)",
+        caption="Importations fossiles hors UE / consommation totale (%) — 2024",
     )
 
     def style_fn(feature):
@@ -402,7 +422,7 @@ def make_map(data, out_path):
     <div class="sub">Importations d'énergie fossile — 2023</div>
   </div>
   <div id="sp-body"></div>
-  <div id="sp-source">Source : Eurostat — nrg_ti_sff / nrg_ti_gas / nrg_ti_oil / nrg_bal_c</div>
+  <div id="sp-source">Source : Eurostat — nrg_ti_sff / nrg_ti_gas / nrg_ti_oil / nrg_bal_c — 2024</div>
 </div>
 
 <script>
