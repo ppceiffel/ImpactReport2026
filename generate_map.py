@@ -169,6 +169,15 @@ def decode_geo_vals(data, conv=1.0):
     return out
 
 
+def fetch_export_total(dataset, siec, unit):
+    """Exportations totales (toutes destinations, partner=TOTAL) -> {geo: ktoe}.
+    Utilisé pour calculer les importations nettes = importations - exportations."""
+    d = fetch(dataset, {"format":"JSON","lang":"EN","freq":"A",
+        "unit":unit,"siec":siec,"partner":"TOTAL",
+        "sinceTimePeriod":YEAR,"untilTimePeriod":YEAR})
+    return decode_geo_vals(d, CONV_KTOE[siec])
+
+
 def fetch_import_total(dataset, siec, unit):
     """Importations totales hors UE27 (partner=EXTRA_EU27_2020)."""
     d = fetch(dataset, {"format":"JSON","lang":"EN","freq":"A",
@@ -208,6 +217,16 @@ def fetch_consumption(siec):
     """Consommation intérieure brute GIC (nrg_bal_c) -> {geo: ktoe}"""
     d = fetch("nrg_bal_c", {"format":"JSON","lang":"EN","freq":"A",
         "unit":"KTOE","nrg_bal":"GIC","siec":siec,
+        "sinceTimePeriod":YEAR,"untilTimePeriod":YEAR})
+    return decode_geo_vals(d, 1.0)
+
+
+def fetch_bunkers():
+    """Soutes maritimes internationales (INTMARB) -> {geo: ktoe}.
+    Ajoutées au dénominateur pour les pays à fort trafic maritime (Malte, Grèce…)
+    conformément à la méthodologie officielle Eurostat de dépendance énergétique."""
+    d = fetch("nrg_bal_c", {"format":"JSON","lang":"EN","freq":"A",
+        "unit":"KTOE","nrg_bal":"INTMARB","siec":"TOTAL",
         "sinceTimePeriod":YEAR,"untilTimePeriod":YEAR})
     return decode_geo_vals(d, 1.0)
 
@@ -262,21 +281,25 @@ def fetch_import_partners(dataset, siec, unit):
 
 def build_data():
     DATASETS = [
-        ("nrg_ti_sff", "C0000X0350-0370", "THS_T"),
-        ("nrg_ti_gas", "G3000",           "TJ_GCV"),
-        ("nrg_ti_oil", "O4000XBIO",       "THS_T"),
+        ("nrg_ti_sff", "nrg_te_sff", "C0000X0350-0370", "THS_T"),
+        ("nrg_ti_gas", "nrg_te_gas", "G3000",           "TJ_GCV"),
+        ("nrg_ti_oil", "nrg_te_oil", "O4000XBIO",       "THS_T"),
     ]
-    imports_total    = {}  # {geo: {lbl: ktoe}}
+    imports_total    = {}  # {geo: {lbl: ktoe}} — brut hors UE
+    exports_total    = {}  # {geo: {lbl: ktoe}} — toutes destinations
     imports_partners = {}  # {geo: {lbl: [{pays,ktoe,iso2,lat,lon}]}}
     consumption_type = {}  # {geo: {lbl: ktoe}}
 
-    for ds, siec, unit in DATASETS:
+    for ds_imp, ds_exp, siec, unit in DATASETS:
         lbl = TYPE_LABEL[siec]
-        print(f"  [{lbl}] importations…")
-        for geo, v in fetch_import_total(ds, siec, unit).items():
+        print(f"  [{lbl}] importations hors UE…")
+        for geo, v in fetch_import_total(ds_imp, siec, unit).items():
             imports_total.setdefault(geo, {})[lbl] = v
+        print(f"  [{lbl}] exportations (toutes destinations)…")
+        for geo, v in fetch_export_total(ds_exp, siec, unit).items():
+            exports_total.setdefault(geo, {})[lbl] = v
         print(f"  [{lbl}] fournisseurs…")
-        for geo, v in fetch_import_partners(ds, siec, unit).items():
+        for geo, v in fetch_import_partners(ds_imp, siec, unit).items():
             imports_partners.setdefault(geo, {})[lbl] = v
         print(f"  [{lbl}] consommation GIC…")
         for geo, v in fetch_consumption(siec).items():
@@ -284,6 +307,8 @@ def build_data():
 
     print("  [Total] consommation GIC toutes énergies…")
     cons_total_raw = fetch_consumption("TOTAL")
+    print("  [Total] soutes maritimes (INTMARB)…")
+    bunkers_raw = fetch_bunkers()
 
     # Assemblage final par pays (iso3)
     all_geos = set(imports_total.keys())
@@ -292,27 +317,37 @@ def build_data():
         iso3 = ISO2_TO_ISO3.get(geo)
         if not iso3: continue
         imp  = imports_total.get(geo, {})
+        exp  = exports_total.get(geo, {})
         cons = consumption_type.get(geo, {})
         cT   = cons_total_raw.get(geo, 0)
-        tot_imp = sum(imp.values())
-        dep_pct = round(tot_imp / cT * 100, 1) if cT > 0 else 0
+        # Dénominateur = GIC + soutes maritimes (méthode officielle Eurostat SDG 7.40)
+        denom = cT + bunkers_raw.get(geo, 0)
 
         types_data = {}
+        net_total = 0.0
         for lbl in ["Charbon", "Gaz naturel", "Pétrole"]:
             imp_v  = imp.get(lbl, 0)
+            exp_v  = exp.get(lbl, 0)
+            net_v  = max(0.0, imp_v - exp_v)      # importations nettes
             cons_v = cons.get(lbl, 0)
-            bar_pct = round(min(imp_v / cons_v * 100, 150), 1) if cons_v > 0 else 0
+            bar_pct = round(min(net_v / cons_v * 100, 100), 1) if cons_v > 0 else 0
+            net_total += net_v
             types_data[lbl] = {
-                "imp":     imp_v,
+                "imp":     imp_v,          # brut hors UE (pour les flèches/partenaires)
+                "exp":     exp_v,          # export total
+                "net":     round(net_v, 1),# net = imp - exp
                 "cons":    cons_v,
                 "bar_pct": bar_pct,
                 "partners": imports_partners.get(geo, {}).get(lbl, []),
             }
 
+        dep_pct = round(net_total / denom * 100, 1) if denom > 0 else 0
+
         out[iso3] = {
             "nom":     EU_COUNTRIES[geo],
             "dep_pct": dep_pct,
-            "tot_imp": round(tot_imp, 1),
+            "tot_imp": round(sum(imp.values()), 1),  # brut pour info
+            "tot_net": round(net_total, 1),
             "cons_tot": cT,
             "types":   types_data,
             "centroid": EU_CENTROIDS.get(iso3, [50, 15]),
@@ -334,7 +369,7 @@ def make_map(data, out_path):
     colormap = cm.LinearColormap(
         colors=["#ffffcc","#fed976","#fd8d3c","#e31a1c","#800026"],
         vmin=0, vmax=min(max_dep, 100),
-        caption="Importations fossiles hors UE / consommation totale (%) — 2024",
+        caption="Importations nettes fossiles hors UE / énergie disponible (%) — 2024",
     )
 
     def style_fn(feature):
@@ -575,13 +610,19 @@ function openPanel(iso3){
 
   let html = `<div class="dep-big">
     <div class="dep-pct">${d.dep_pct.toFixed(1)} %</div>
-    <div class="dep-label">Importations fossiles hors UE / consommation totale</div>
+      <div class="dep-label">Importations nettes fossiles hors UE / énergie disponible (GIC + soutes)</div>
   </div>`;
 
   ORDER.forEach(t => {
     const td = d.types[t]; if(!td || !td.imp) return;
     const col = COLORS[t]||'#888';
     const bpct = Math.min(td.bar_pct, 100);
+    const netLine = td.exp > 0
+      ? `<div class="e-stats" style="color:#888;font-size:10px">
+           <span>Exporté&nbsp;: ${fmt(td.exp)} ktoe</span>
+           <span>Net&nbsp;: <strong style="color:#222">${fmt(td.net)} ktoe</strong></span>
+         </div>`
+      : '';
     const pList = (td.partners||[]).map((p,i)=>{
       const fl = flag(p.iso2);
       return `<div class="partner-row">
@@ -596,20 +637,25 @@ function openPanel(iso3){
         <span class="e-dot" style="background:${col}"></span>${t}
       </div>
       <div class="e-stats">
-        <span>Importé : <strong>${fmt(td.imp)} ktoe</strong></span>
-        <span>Consommé : <strong>${fmt(td.cons)} ktoe</strong></span>
+        <span>Importé (hors UE)&nbsp;: <strong>${fmt(td.imp)} ktoe</strong></span>
+        <span>Consommé&nbsp;: <strong>${fmt(td.cons)} ktoe</strong></span>
       </div>
+      ${netLine}
       <div class="bar-wrap">
         <div class="bar-fill" style="width:${bpct}%;background:${col}"></div>
       </div>
-      <div class="bar-pct-label">Import / Conso : ${td.bar_pct.toFixed(0)} %</div>
-      ${pList ? '<div class="partners-lbl">&#127758; Principaux fournisseurs :</div>'+pList : ''}
+      <div class="bar-pct-label">Import net / Conso : ${td.bar_pct.toFixed(0)} %</div>
+      ${pList ? '<div class="partners-lbl">&#127758; Principaux fournisseurs (flux bruts) :</div>'+pList : ''}
     </div>`;
   });
 
   html += `<div class="grand-line">
-    <span>Total importé (fossile)</span>
+    <span>Importé brut hors UE</span>
     <span>${fmt(d.tot_imp)} ktoe</span>
+  </div>
+  <div class="grand-line" style="background:#e8f4f8;color:#1a1a2e">
+    <span>Net (imp. &#8722; exp.)</span>
+    <span>${fmt(d.tot_net)} ktoe</span>
   </div>`;
 
   document.getElementById('sp-body').innerHTML = html;
